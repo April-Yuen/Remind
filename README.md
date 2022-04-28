@@ -1,1 +1,1 @@
-# 100Devs-Team-Project
+# 100Devs Team Project
