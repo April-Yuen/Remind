@@ -1,10 +1,43 @@
 /******************************************
 /* CSS
 /*******************************************/
+html{
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 62.5%;
+}
 
 /* Box Model Hack */
 *{
   box-sizing: border-box;
+}
+
+h2{
+  font-weight: 300;
+  font-size: 2.5rem;
+}
+
+.header-title{
+  color: #b31b10;
+  margin-top: 3.9%;
+}
+header {
+  display: flex;
+}
+
+.logo{
+  width: 15%;
+  margin-right:-5.5%;
+}
+
+.logo-name{
+  flex-direction: row;
+  justify-content: flex-start;
+  display: flex;
+}
+
+li{
+  list-style: none;
+  font-size: 2rem;
 }
 
 /******************************************
