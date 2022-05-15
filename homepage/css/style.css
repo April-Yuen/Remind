@@ -40,6 +40,15 @@ li{
   font-size: 2rem;
 }
 
+ul{
+  margin-left: -55%;
+  display: flex;
+  margin-top: 10%;
+  justify-content: space-around;
+  margin-right: 10%;
+
+}
+
 /******************************************
 /* LAYOUT
 /*******************************************/
