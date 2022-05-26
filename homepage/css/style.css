@@ -104,3 +104,43 @@ p{
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+/* adding Medium 768px media query */
+@media (min-width: 768px) and (max-width: 991px) {
+  
+  main{
+		display: flex;
+		flex-wrap: wrap;
+		box-sizing: border-box;
+		align-items: stretch;
+  }
+
+  section div{
+    margin: 2% 2%;
+  }
+
+  /* for completed page */
+  .completed{
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* for favorite page */
+  .favorite{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/* media query for width less than 768px  */
+@media screen and (max-width: 767px){
+  main{
+		display: flex;
+		flex-wrap: wrap;
+		box-sizing: border-box;
+		align-items: stretch;
+  }
+
+  section div{
+    margin: 2% 2%;
+  }
+}
