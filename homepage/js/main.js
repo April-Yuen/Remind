@@ -1,8 +1,21 @@
-function showMessgae(from, text){
-    from='*' + from + '*';
-    alert( from + ': ' + text);
-}
+// function showMessgae(from, text){
+//     from='*' + from + '*';
+//     alert( from + ': ' + text);
+// }
 
-let from = 'Ann';
+// let from = 'Ann';
 
-showMessage(from, "Hello");
+// showMessage(from, "Hello");
+
+/////////Header//////////////////////////
+const hamburger = document.querySelector(".hamburger")
+const navMenu = document.querySelector(".nav-menu")
+
+hamburger.addEventListener("click", ()=>{
+    hamburger.classList.toggle("active")
+    navMenu.classList.toggle("active")
+})
+document.querySelectorAll(".nav-link").forEach(ele => ele.addEventListener("click", ()=>{
+    hamburger.classList.remove("active")
+    navMenu.classList.remove("active")
+}))
