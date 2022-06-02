@@ -114,6 +114,8 @@ li{
   .bar{
     margin-right: 5%;
   }
+}
+
 main{
   display: flex;
   justify-content: space-around;
@@ -160,7 +162,7 @@ p{
   border: none;
   margin-right: 18rem;
 }
-}
+
 
 /******************************************
 /* ADDITIONAL STYLES
