@@ -222,4 +222,9 @@ p{
     display: flex;
     justify-content: center;
   }
+  #exercise-paragraph{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
