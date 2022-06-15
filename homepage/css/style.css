@@ -121,18 +121,18 @@ main{
   justify-content: space-around;
 }
 
-img{
+/* img{
   border-radius: 1rem;
-}
+} */
 
 p{
   font-size: 2rem;
   width: 50rem;
 }
 
-#side-top{
+#exercise-header{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -148,6 +148,7 @@ p{
 #title{
   font-size: 4rem;
   font-weight: 510;
+  padding: 0 4rem;
 }
 
 #heart{
@@ -209,3 +210,16 @@ p{
 }
 
 /* media query for large size */
+@media (min-width: 992px) and (max-width: 1199px){
+  .homepage{
+    display: flex;
+    justify-content: center;
+  }
+  .exercise-paragraph{
+    display: flex;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+}
