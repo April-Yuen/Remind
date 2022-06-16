@@ -181,7 +181,6 @@ p{
   justify-content: center;
   align-items: center;
   border: none;
-  margin-right: 18rem;
 }
 
 /*
@@ -238,7 +237,7 @@ main{
   }
 
   section div{
-    margin: 2% 2%;
+    margin: 0.5rem;
   }
   .completed-button{
     width: 90vw;
@@ -257,7 +256,11 @@ main{
 
 /* adding Medium 768px media query */
 @media (min-width: 768px) and (max-width: 991px) {
-  
+ 
+  header{
+    padding-bottom: 1rem;
+  }
+
   main{
 		display: flex;
 		flex-wrap: wrap;
@@ -266,7 +269,7 @@ main{
   }
 
   section div{
-    margin: 2% 2%;
+    margin: 0.5rem;
   }
 
   /* for completed page */
