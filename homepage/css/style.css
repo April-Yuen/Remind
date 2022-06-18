@@ -288,7 +288,12 @@ main{
 
 /* media query for large size, 992px-1199px */
 @media (min-width: 992px) and (max-width: 1199px){
-  .homepage{
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+   .homepage{
     display: flex;
     justify-content: center;
   }
@@ -303,5 +308,49 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+  } 
+
+  .completed-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+/* media query for X-Large size, 992px-1199px */
+@media (min-width: 1200px) {
+  body {
+  }
+  
+  main {
+    display: flex;
+    justify-content: space-between;
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  .homepage {
+    margin-right: 4rem;
+  }
+
+  #exercise-description {
+    width: 40%;
+  }
+
+  #exercise-header, #exercise-paragraph {
+    width: 100%;
+  }
+
+  #exercise-paragraph > .center {
+    width: 100%;
+  }
+
+  #title {
+    font-size: 2.1rem;
+  }
+
+  .exercise-img {
+    width: 100%;
   }
 }
