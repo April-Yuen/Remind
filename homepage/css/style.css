@@ -172,15 +172,17 @@ p{
 }
 
 #heart{
-  width: 5rem;
-  height: 5rem;
-  font-size: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
   font-weight: 600;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
+  color: rgb(84, 84, 84);
+  padding-top: 0.2rem;
 }
 
 /*
@@ -206,6 +208,12 @@ main{
 #exercise-header{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.completed-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
