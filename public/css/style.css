@@ -1,0 +1,365 @@
+/******************************************
+/* CSS
+/*******************************************/
+html{
+    font-family: 'Noto Sans Display', sans-serif;
+    font-size: 62.5%;
+  }
+  
+  /* Box Model Hack */
+  *{
+    box-sizing: border-box;
+  }
+  
+  h2{
+    font-weight: 300;
+    font-size: 2.5rem;
+  }
+  
+  /*
+   
+   oooo                                  .o8                     
+   `888                                 "888                     
+    888 .oo.    .ooooo.   .oooo.    .oooo888   .ooooo.  oooo d8b 
+    888P"Y88b  d88' `88b `P  )88b  d88' `888  d88' `88b `888""8P 
+    888   888  888ooo888  .oP"888  888   888  888ooo888  888     
+    888   888  888    .o d8(  888  888   888  888    .o  888     
+   o888o o888o `Y8bod8P' `Y888""8o `Y8bod88P" `Y8bod8P' d888b    
+                                                                 
+                                                                 
+                                                                 
+   
+  */
+  
+  .header-title{
+    color: #b31b10;
+    margin-top: 3.9%;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .logo{
+    width: 15%;
+    margin-right:-5.5%;
+  }
+  
+  .logo-name{
+    flex-direction: row;
+    justify-content: flex-start;
+    display: flex;
+  }
+  
+  li{
+    list-style: none;
+  }
+  
+  .nav-link{
+    list-style: none;
+    font-size: 2rem;
+    color: black;
+    text-decoration: none;
+    transition: 0.7s ease;
+    padding: 0 1rem;
+  }
+  .nav-link:hover{
+    color: #f52c86;
+  }
+  
+  .nav-menu{
+    margin-left: -65%;
+    display: flex;
+    margin-top: 10%;
+    justify-content: space-around;
+    margin-right: 20%;
+  }
+  .hamburger{
+    display: none;
+    cursor: pointer;
+  }
+  
+  .bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #f52c86;
+  }
+  
+  @media(max-width: 768px){
+    .hamburger{
+      display: block;
+      margin-right: 15px;
+      margin-top: 15px;
+    }
+    .hamburger.active .bar:nth-child(2){
+      opacity:0;
+    }
+    .hamburger.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+      position: fixed;
+      left: -100%;
+      top: -10px;
+      gap: 0;
+      flex-direction: column;
+      background-color: #eba9c6;
+      width: 90%;
+      text-align: center;
+      transition: 0.3s;
+      padding-bottom: 4%;
+    }
+    .nav-item{
+      margin: 14px 0;
+    }
+    .nav-menu.active{
+      left: 70%;
+    }
+    .bar{
+      margin-right: 5%;
+    }
+  }
+  
+  /******************************************
+  /* LAYOUT
+  /*******************************************/
+  
+  /*
+   
+         .o8             .o88o.                       oooo      .                     .               oooo                     
+        "888             888 `"                       `888    .o8                   .o8               `888                     
+    .oooo888   .ooooo.  o888oo   .oooo.   oooo  oooo   888  .o888oo       .oooo.o .o888oo oooo    ooo  888   .ooooo.   .oooo.o 
+   d88' `888  d88' `88b  888    `P  )88b  `888  `888   888    888        d88(  "8   888    `88.  .8'   888  d88' `88b d88(  "8 
+   888   888  888ooo888  888     .oP"888   888   888   888    888        `"Y88b.    888     `88..8'    888  888ooo888 `"Y88b.  
+   888   888  888    .o  888    d8(  888   888   888   888    888 .      o.  )88b   888 .    `888'     888  888    .o o.  )88b 
+   `Y8bod88P" `Y8bod8P' o888o   `Y888""8o  `V88V"V8P' o888o   "888"      8""888P'   "888"     .8'     o888o `Y8bod8P' 8""888P' 
+                                                                                          .o..P'                               
+                                                                                          `Y8P'                                
+                                                                                                                               
+   
+  */
+  
+  img{
+    border-radius: 1rem;
+    width: 90vw;
+  }
+  
+  p{
+    font-size: 2rem;
+    width: 50rem;
+  }
+  
+  .completed-button{
+    font-size: 2rem;
+    background-color: #FF6363;
+    width: 50rem;
+    height: 5rem;
+    border-radius: 1rem;
+    border: none;
+  }
+  
+  #title{
+    font-size: 4rem;
+    font-weight: 510;
+    padding: 0 4rem;
+  }
+  
+  #heart{
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: rgb(84, 84, 84);
+    padding-top: 0.2rem;
+  }
+  
+  /*
+   
+    .o88o. oooo                                          .               oooo   o8o                         
+    888 `" `888                                        .o8               `888   `"'                         
+   o888oo   888   .ooooo.  oooo    ooo       .oooo.o .o888oo oooo    ooo  888  oooo  ooo. .oo.    .oooooooo 
+    888     888  d88' `88b  `88b..8P'       d88(  "8   888    `88.  .8'   888  `888  `888P"Y88b  888' `88b  
+    888     888  888ooo888    Y888'         `"Y88b.    888     `88..8'    888   888   888   888  888   888  
+    888     888  888    .o  .o8"'88b        o.  )88b   888 .    `888'     888   888   888   888  `88bod8P'  
+   o888o   o888o `Y8bod8P' o88'   888o      8""888P'   "888"     .8'     o888o o888o o888o o888o `8oooooo.  
+                                                             .o..P'                              d"     YD  
+                                                             `Y8P'                               "Y88888P'  
+                                                                                                            
+   
+  */
+  
+  main{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #exercise-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .completed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+  
+  /*
+   
+                                     .o8   o8o                                                            o8o                     
+                                    "888   `"'                                                            `"'                     
+   ooo. .oo.  .oo.    .ooooo.   .oooo888  oooo   .oooo.         .ooooo oo oooo  oooo   .ooooo.  oooo d8b oooo   .ooooo.   .oooo.o 
+   `888P"Y88bP"Y88b  d88' `88b d88' `888  `888  `P  )88b       d88' `888  `888  `888  d88' `88b `888""8P `888  d88' `88b d88(  "8 
+    888   888   888  888ooo888 888   888   888   .oP"888       888   888   888   888  888ooo888  888      888  888ooo888 `"Y88b.  
+    888   888   888  888    .o 888   888   888  d8(  888       888   888   888   888  888    .o  888      888  888    .o o.  )88b 
+   o888o o888o o888o `Y8bod8P' `Y8bod88P" o888o `Y888""8o      `V8bod888   `V88V"V8P' `Y8bod8P' d888b    o888o `Y8bod8P' 8""888P' 
+                                                                     888.                                                         
+                                                                     8P'                                                          
+                                                                     "                                                            
+   
+  */
+  
+  /* media query for width less than 768px  */
+  @media screen and (max-width: 767px){
+    main{
+          display: flex;
+          flex-wrap: wrap;
+          box-sizing: border-box;
+    }
+  
+    section div{
+      margin: 0.5rem;
+    }
+    .completed-button{
+      width: 90vw;
+    }
+    p{
+      width: 90vw;
+    }
+    #heart{
+      margin: 0;
+    }
+    #title{
+      padding: 1.5rem;
+      margin: 0;
+    }
+  }
+  
+  /* adding Medium 768px media query */
+  @media (min-width: 768px) and (max-width: 991px) {
+   
+    header{
+      padding-bottom: 1rem;
+    }
+  
+    main{
+          display: flex;
+          flex-wrap: wrap;
+          box-sizing: border-box;
+          align-items: stretch;
+    }
+  
+    section div{
+      margin: 0.5rem;
+    }
+  
+    /* for completed page */
+    .completed{
+      display: flex;
+      flex-direction: row;
+    }
+  
+    /* for favorite page */
+    .favorite{
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+  
+  /* media query for large size, 992px-1199px */
+  @media (min-width: 992px) and (max-width: 1199px){
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+  
+     .homepage{
+      display: flex;
+      justify-content: center;
+    }
+    .exercise-paragraph{
+      display: flex;
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+    #exercise-paragraph{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    } 
+  
+    .completed-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+  }
+  
+  /* media query for X-Large size, 992px-1199px */
+  @media (min-width: 1200px) {
+    /* body {
+    }
+     */
+    main {
+      display: flex;
+      justify-content: space-between;
+      max-width: 70%;
+      margin: 0 auto;
+    }
+  
+    .homepage {
+      margin-right: 4rem;
+    }
+  
+    #exercise-description {
+      width: 40%;
+    }
+  
+    #exercise-header, #exercise-paragraph {
+      width: 100%;
+    }
+  
+    #exercise-paragraph > .center {
+      width: 100%;
+    }
+  
+    #title {
+      font-size: 2.1rem;
+    }
+  
+    .exercise-img {
+      width: 100%;
+    }
+  }
+  
