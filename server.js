@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient
+const PORT = 2121
 require('dotenv').config()
 
 
@@ -34,6 +35,25 @@ app.get('/', (request, response) => {
     })
     .catch(error => console.error(error))
 })
+
+app.get('/completed', (request, response) => {
+    collection.find().toArray()
+    .then(results => {
+        console.log(results)
+        response.render('completed.ejs')
+    })
+    .catch(error => console.error(error))
+})
+
+app.get('/favorite', (request, response) => {
+    collection.find().toArray()
+    .then(results => {
+        console.log(results)
+        response.render('favorite.ejs')
+    })
+    .catch(error => console.error(error))
+})
+
 
 
 // Port connection
