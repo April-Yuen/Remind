@@ -42,11 +42,17 @@
 		</header>
 		<main>
 			<section class="homepage">
+				<% if(latest != "") {%>
+					<% latest.forEach(function(exercise, index) {%>
+						<video controls width="250">
+							<source src="<%=exercise.videoURL%>" type="video/webm">
+							Your browser does not support the video tag.
+						</video>
 				<img class="exercise-img" src="http://placekitten.com/700/400" alt="">
 			</section>
 			<section id="exercise-description">
 				<div id="exercise-header">
-					<h2 class="favorite-button" id="title">Exercise Title</h2>
+					<h2 class="favorite-button" id="title"><%- exercise.title%></h2>
 					<button type="button" class="favorite-button" id="heart" aria-label="favorite">
 						<i class="fa-solid fa-heart"></i>
 					</button>
@@ -58,6 +64,10 @@
 					</p>
 					<button class="completed-button center">Mark as completed</button>
 				</div>
+				<% }) %>
+				<% } else { %>
+					<p>No items found.</p>
+			<% } %>
 			</section>
 		</main>
 		<script type="text/javascript" src="js/main.js"></script>
