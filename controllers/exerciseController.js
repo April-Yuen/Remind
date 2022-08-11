@@ -6,8 +6,12 @@ const Exercise = require("../models/Exercise");
 exports.getExercise = async(req, res) => {
     try {
         const limitNumber = 1
-        const latest = await Exercise.find({}).sort({_id: -1}).limit(limitNumber)
-        res.render('index', {title: "Remind Exercise - Home", latest})
+        let latest = await Exercise.find({}).sort({_id: -1}).limit(limitNumber)
+
+        const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
+        latest[0].videoURL = embedVideoUrl;
+
+        res.render('index', {title: "Remind Exercise - Home", latest })
     } catch (error) {
         console.error(error);
         res.status(500).json({success: false, message: error.message})

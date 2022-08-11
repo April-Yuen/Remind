@@ -44,10 +44,16 @@
 			<section class="homepage">
 				<% if(latest != "") {%>
 					<% latest.forEach(function(exercise, index) {%>
-						<video controls width="250">
-							<source src="<%=exercise.videoURL%>" type="video/webm">
-							Your browser does not support the video tag.
-						</video>
+						<iframe
+							width="560"
+							height="315"
+							src="<%- exercise.videoURL %>"
+							title="YouTube video player"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						>
+						</iframe>
 				<img class="exercise-img" src="http://placekitten.com/700/400" alt="">
 			</section>
 			<section id="exercise-description">
