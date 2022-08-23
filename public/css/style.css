@@ -89,6 +89,7 @@ html{
     background-color: #f52c86;
   }
   
+  
   @media(max-width: 768px){
     .hamburger{
       display: block;

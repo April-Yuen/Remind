@@ -44,7 +44,8 @@
 			<section class="homepage">
 				<% if(latest != "") {%>
 					<% latest.forEach(function(exercise, index) {%>
-						<iframe
+						<iframe 
+						
 							width="560"
 							height="315"
 							src="<%- exercise.videoURL %>"
@@ -54,7 +55,7 @@
 							allowfullscreen
 						>
 						</iframe>
-				<img class="exercise-img" src="http://placekitten.com/700/400" alt="">
+				<!-- <img class="exercise-img" src="http://placekitten.com/700/400" alt=""> -->
 			</section>
 			<section id="exercise-description">
 				<div id="exercise-header">
