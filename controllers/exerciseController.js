@@ -1,9 +1,9 @@
 require('../database/connectDB')
 const Exercise = require("../models/Exercise");
 
-
+module.exports = {
 //Get homepage
-exports.getExercise = async(req, res) => {
+getExercise : async(req, res) => {
     try {
         const limitNumber = 1
         let latest = await Exercise.find({}).sort({_id: -1}).limit(limitNumber)
@@ -16,14 +16,13 @@ exports.getExercise = async(req, res) => {
         console.error(error);
         res.status(500).json({success: false, message: error.message})
     }
-}
-exports.markFavorite= async (req, res)=>{
+},
+markFavorite: async (req, res)=>{
     try{
-        console.log(req.body)
-        await Exercise.findOneAndUpdate({_id:req.body.todoIdFromJSFile})
-        //     {
-        //     isFavorite: true, 
-        // })
+        await Exercise.findByIdAndUpdate({_id:req.body.todoIdFromJSFile},
+            {
+            isFavorite: true, 
+        })
         res.render('index', {isFavorite : true})
         
         
@@ -32,8 +31,10 @@ exports.markFavorite= async (req, res)=>{
     }catch(err){
         console.log(err)
     }
-}
+},
 
+
+}
 
 
 

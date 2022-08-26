@@ -1,6 +1,6 @@
 const hamburger = document.querySelector(".hamburger")
 const navMenu = document.querySelector(".nav-menu")
-const todoItem = document.getElementsByClassName('not')
+const todoItem = document.querySelector(".not")
 
 hamburger.addEventListener("click", ()=>{
     hamburger.classList.toggle("active")
@@ -11,9 +11,9 @@ document.querySelectorAll(".nav-link").forEach(ele => ele.addEventListener("clic
     navMenu.classList.remove("active")
 }))
 
-// Array.from(todoItem).forEach((el)=>{
-//     el.addEventListener('click', markFavorite)
-// })
+Array.from(todoItem).forEach((el)=>{
+    el.addEventListener('click', markFavorite)
+})
 document.querySelector('.not').addEventListener('click', markFavorite)
 
 // Array.from(todoComplete).forEach((el)=>{
@@ -21,11 +21,10 @@ document.querySelector('.not').addEventListener('click', markFavorite)
 // })
 
 async function markFavorite(){
-    const todoId = this.parentNode.dataset._id
-    console.log(this)
-    console.log(todoId)
+    const todoId = this.attributes[4].value
+    
     try{
-        const response = await fetch('/exerciseRoutes/markFavorite', {
+        const response = await fetch('/markFavorite', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
