@@ -16,6 +16,7 @@ const ExerciseSchema = new mongoose.Schema({
      isFavorite: {
         type: Boolean,
         default: false,
+        required: true,
      },
    },{
       timestamps:true 

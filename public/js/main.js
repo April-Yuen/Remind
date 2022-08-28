@@ -1,5 +1,6 @@
 const hamburger = document.querySelector(".hamburger")
 const navMenu = document.querySelector(".nav-menu")
+const todoItem = document.getElementsByClassName('not')
 
 hamburger.addEventListener("click", ()=>{
     hamburger.classList.toggle("active")
@@ -9,3 +10,50 @@ document.querySelectorAll(".nav-link").forEach(ele => ele.addEventListener("clic
     hamburger.classList.remove("active")
     navMenu.classList.remove("active")
 }))
+
+// Array.from(todoItem).forEach((el)=>{
+//     el.addEventListener('click', markFavorite)
+// })
+document.querySelector('.not').addEventListener('click', markFavorite)
+
+// Array.from(todoComplete).forEach((el)=>{
+//     el.addEventListener('click', markIncomplete)
+// })
+
+async function markFavorite(){
+    const todoId = this.parentNode.dataset._id
+    console.log(this)
+    console.log(todoId)
+    try{
+        const response = await fetch('/exerciseRoutes/markFavorite', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// async function markIncomplete(){
+//     const todoId = this.parentNode.dataset.id
+//     try{
+//         const response = await fetch('todos/markIncomplete', {
+//             method: 'put',
+//             headers: {'Content-type': 'application/json'},
+//             body: JSON.stringify({
+//                 'todoIdFromJSFile': todoId
+//             })
+//         })
+//         const data = await response.json()
+//         console.log(data)
+//         location.reload()
+//     }catch(err){
+//         console.log(err)
+//     }
+// }

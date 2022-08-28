@@ -17,6 +17,28 @@ exports.getExercise = async(req, res) => {
         res.status(500).json({success: false, message: error.message})
     }
 }
+exports.markFavorite= async (req, res)=>{
+    try{
+        console.log(req.body)
+        await Exercise.findOneAndUpdate({_id:req.body.todoIdFromJSFile})
+        //     {
+        //     isFavorite: true, 
+        // })
+        res.render('index', {isFavorite : true})
+        
+        
+        console.log('Marked Favorite')
+        res.json('Marked Favorite')
+    }catch(err){
+        console.log(err)
+    }
+}
+
+
+
+
+
+
 
 
  // Insert Exercise to Database

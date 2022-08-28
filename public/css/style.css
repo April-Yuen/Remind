@@ -172,7 +172,7 @@ html{
     padding: 0 4rem;
   }
   
-  #heart{
+  #heart.not{
     width: 4rem;
     height: 4rem;
     font-size: 2rem;
@@ -184,6 +184,11 @@ html{
     border: none;
     color: rgb(84, 84, 84);
     padding-top: 0.2rem;
+  }
+  #heart.favorite{
+   color: #FF6363;
+   background-color: #f52c86;
+    
   }
   
   /*
