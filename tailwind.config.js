@@ -2,7 +2,12 @@
 module.exports = {
   content: ["**/*.ejs"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        coral: "#FF6363",
+        "coral-dark": "#8F4242"
+      }
+    },
   },
   plugins: [],
 }
