@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+const flash = require('connect-flash')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const PORT = 8000
 // const connectDB = require('./database/connectDB')
@@ -7,59 +10,27 @@ const PORT = 8000
 
 require('dotenv').config()
 
-// connectDB()
 
-
-// Mongo Connection
-// let db,
-//     dbConnectionString = process.env.DB_STRING,
-//     dbName = 'workout',
-//     collection
-
-// MongoClient.connect(dbConnectionString)
-//     .then(client => {
-//         console.log(`Connected to ${dbName} database`)
-//         db = client.db(dbName)
-//         collection = db.collection('categories')
-//     })
-
-// Middleware- must be put prior to any CRUD operations
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cors())
 
+
+// middleware to save data and cookie sessions
+app.use(cookieParser('RemindDatabaseSecure'))
+app.use(session({
+    secret: "RemindDatabaseSecretSession",
+    saveUninitialized: false,
+    resave: false
+}))
+
+app.use(flash())
+
+
 const routes = require('./routes/exerciseRoutes.js')
 app.use("/", routes)
-
-// app.get('/', (request, response) => {
-//     collection.find().toArray()
-//     .then(results => {
-//         console.log(results)
-//         response.render('index.ejs')
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// app.get('/completed', (request, response) => {
-//     collection.find().toArray()
-//     .then(results => {
-//         console.log(results)
-//         response.render('completed.ejs')
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// app.get('/favorite', (request, response) => {
-//     collection.find().toArray()
-//     .then(results => {
-//         console.log(results)
-//         response.render('favorite.ejs')
-//     })
-//     .catch(error => console.error(error))
-// })
-
 
 
 // Port connection
