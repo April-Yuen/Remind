@@ -35,14 +35,12 @@ markFavorite: async (req, res)=>{
 },
 
 
-}
-
 // Get add-video
-exports.addVideo = async(req, res) => {
+addVideo : async(req, res) => {
     const infoErrorsObj = req.flash("infoErrors")
     const infoSubmitObj = req.flash("infoSubmit")
     res.render('add-video', {title: "Remind Exercise - Add a Video", infoErrorsObj, infoSubmitObj})
-}
+},
 
 // Submit Video
 //   exports.addVideoOnPost = async(req, res) => {
@@ -66,7 +64,7 @@ exports.addVideo = async(req, res) => {
 //       }
 //   }
 
- exports.addVideoOnPost = async(req, res) => {
+addVideoOnPost : async(req, res) => {
      try {
         const {
             title, 
@@ -106,7 +104,7 @@ exports.addVideo = async(req, res) => {
         }
       }
  }
-
+}
 
 
 
