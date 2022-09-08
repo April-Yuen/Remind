@@ -2,9 +2,9 @@ require('../database/connectDB')
 const { response } = require('express');
 const Exercise = require("../models/Exercise");
 
-
+module.exports = {
 //Get homepage
-exports.getExercise = async(req, res) => {
+getExercise : async(req, res) => {
     try {
         const limitNumber = 1
         let latest = await Exercise.find({}).sort({_id: -1}).limit(limitNumber)
@@ -17,6 +17,24 @@ exports.getExercise = async(req, res) => {
         console.error(error);
         res.status(500).json({success: false, message: error.message})
     }
+},
+markFavorite: async (req, res)=>{
+    try{
+        await Exercise.findByIdAndUpdate({_id:req.body.todoIdFromJSFile},
+            {
+            isFavorite: true, 
+        })
+        res.render('index', {isFavorite : true})
+        
+        
+        console.log('Marked Favorite')
+        res.json('Marked Favorite')
+    }catch(err){
+        console.log(err)
+    }
+},
+
+
 }
 
 // Get add-video
@@ -88,6 +106,11 @@ exports.addVideo = async(req, res) => {
         }
       }
  }
+
+
+
+
+
 
 
 

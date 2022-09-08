@@ -7,10 +7,10 @@ const exerciseController = require('../controllers/exerciseController')
 router.get('/', exerciseController.getExercise)
 router.get('/add-video', exerciseController.addVideo)
 router.post('/add-video', exerciseController.addVideoOnPost)
-// router.put('/exercises/:id/favorite', )
+router.put('/markFavorite', exerciseController.markFavorite )  //shooting from the hip here, not sure the route
 // router.put('/exercises/:id/unfavorite',)
 
 
-module.exports= router;
+module.exports= router
 
 

@@ -4,13 +4,11 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-const PORT = 8000
-// const connectDB = require('./database/connectDB')
-// const MongoClient = require('mongodb').MongoClient
+const PORT = 8000 || process.env.PORT
 
 require('dotenv').config()
 
-
+// Middleware- must be put prior to any CRUD operations
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
@@ -34,6 +32,6 @@ app.use("/", routes)
 
 
 // Port connection
-app.listen(process.env.PORT || PORT, () => {
-    console.log(`Server is running on port`)
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
 })
