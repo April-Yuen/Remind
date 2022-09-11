@@ -1,4 +1,28 @@
 <nav>
+  <!-- Mobile -->
+    <div>
+
+      <ul id="drawer" class="absolute inset-y-0 z-50 w-1/2 px-5 py-10 space-y-5 font-semibold transition-all -left-96 md:hidden bg-slate-50">
+        <li>
+          <div class="flex items-center space-x-4">
+            <img class="background-slate-700" src="img/remind-logo.svg" alt="The logo for our awesome app">
+            <h2 class="text-2xl text-coral-dark">Re:Mind</h2>
+          </div>
+        </li>
+        <li class="text-coral">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="text-coral">
+          <a href="/completed" class="nav-link">Completed Exercise</a>
+        </li>
+        <li class="text-coral">
+          <a href="/favorite" class="nav-link">Favorites</a>
+        </li>
+      </ul>
+    </div>
+    <button type="button" id="overlay" class="absolute inset-0 z-10 hidden w-full h-full bg-black/10"></button>
+  
+  <!-- Desktop -->
   <ul class="hidden md:block">
     <li class="nav-item">
       <a href="/" class="nav-link">Home</a>
@@ -7,10 +31,10 @@
       <a href="/completed" class="nav-link">Completed Exercise</a>
     </li>
     <li class="nav-item">
-      <a href="/favorite" class="nav-link">Favorited</a>
+      <a href="/favorite" class="nav-link">Favorites</a>
     </li>
   </ul>
-  <button type="button" class="mt-3 md:hidden">
+  <button id="hamburger" type="button" class="mt-3 md:hidden">
     <img src="img/hamburger-menu.svg" alt="mobile menu button">
   </button>
 </nav>
