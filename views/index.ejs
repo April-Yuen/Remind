@@ -1,6 +1,5 @@
 <%- include("partials/layout/header") %> 
-<main class="flex-grow px-10">
-	<section class="">
+	<section>
 		<% if(latest != "") {%>
 			<% latest.forEach(exercise => {%>
 				<iframe width="560"
@@ -33,5 +32,4 @@
 			<p>No items found.</p>
 	<% } %>
 	</section>
-</main>
 <%- include("partials/layout/footer") %> 

@@ -1,6 +1,5 @@
 require('../database/connectDB')
 const Exercise = require("../models/Exercise");
-const axios = require("axios");
 
 module.exports = {
     getExercise : async(req, res) => {
@@ -50,4 +49,13 @@ module.exports = {
             console.error(error);
         }
     },
+    exerciseDetails: async (req, res) => {
+        try {
+            const exercise = await Exercise.findById(req.params.id);
+            
+            res.render("exercise", { exercise });
+        } catch (error) {
+            console.error(error);
+        }
+    }
 }
