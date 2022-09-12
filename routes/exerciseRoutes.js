@@ -8,6 +8,7 @@ router.get('/', exerciseController.getExercise)
 router.get('/add-video', exerciseController.addVideo)
 router.post('/add-video', exerciseController.addVideoOnPost)
 router.put('/markFavorite', exerciseController.markFavorite )  //shooting from the hip here, not sure the route
+router.get('/exercise/:id', exerciseController.exerciseDetails)
 // router.put('/exercises/:id/unfavorite',)
 
 
