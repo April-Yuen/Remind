@@ -41,42 +41,22 @@
 			</nav>
 		</header>
 		<main>
-			<section class="homepage">
-				<% if(latest != "") {%>
-					<% latest.forEach(exercise => {%>
-						<iframe width="560"
-							height="315"
-							src="<%= exercise.videoURL %>"
-							title="YouTube video player"
-							frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-						>
-						</iframe>
-				
-			</section>
-			<section id="exercise-description">
-				<div id="exercise-header">
-					<h2 class="favorite-button" id="title"><%- exercise.title%></h2>
-					<button type="button" class="favorite-button <%= exercise.isFavorite === true ? 'favorite' : 'not'%>" id="heart" aria-label="favorite" test= " <%=exercise._id %>">
-						<i class="fa-solid fa-heart"></i>
-					</button>
-				</div>
-				<div id="exercise-paragraph">
-					<p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea tenetur libero nesciunt 
-					cumque unde deleniti hic quod aliquid autem 
-					eveniet illum fuga cum, excepturi magni sunt quibusdam eaque, error veritatis.
-					</p>
-					<button class="completed-button center">Mark as completed</button>
-					<a href="/exercise/<%= exercise._id %>">
-						View Details
-					</a>
-				</div>
-				<% }) %>
-				<% } else { %>
-					<p>No items found.</p>
-			<% } %>
-			</section>
+			<h4>
+                <%= exercise.title %>
+            </h4>
+            <p>
+                <%= exercise.videoURL %>
+            </p>
+            <p>
+                <%= exercise.description %>
+            </p>
+            <p>
+                <% if(exercise.isFavorite){  %>
+                    <span>Favorite</span> 
+                    <%   }else{   %>
+                    <span>Not favorite</span>
+                    <%   }   %>
+            </p>
 		</main>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>

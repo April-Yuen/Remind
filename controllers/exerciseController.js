@@ -34,35 +34,12 @@ markFavorite: async (req, res)=>{
     }
 },
 
-
 // Get add-video
 addVideo : async(req, res) => {
     const infoErrorsObj = req.flash("infoErrors")
     const infoSubmitObj = req.flash("infoSubmit")
     res.render('add-video', {title: "Remind Exercise - Add a Video", infoErrorsObj, infoSubmitObj})
 },
-
-// Submit Video
-//   exports.addVideoOnPost = async(req, res) => {
-//       try{
-//       const newExercise = new Exercise({
-//           title: req.body.title,
-//           videoURL: req.body.videoURL,
-//           description: req.body.description,
-//           isFavorite: false,
-//           timestamps: true
-//       })
-//       console.log(newExercise)
-//       newExercise.save()
-//       req.flash('infoSubmit', "Video has been added.")
-//       res.redirect('/add-video')
-//       }catch{
-//           req.flash('infoErrors', error)
-//           console.log(error)
-//           res.redirect('/add-video')
-
-//       }
-//   }
 
 addVideoOnPost : async(req, res) => {
      try {
@@ -103,32 +80,17 @@ addVideoOnPost : async(req, res) => {
             res.redirect("/add-video")
         }
       }
- }
+ },
+ 
+exerciseDetails : async(req,res)=>{
+    try{
+        const exercise = await Exercise.findOne({
+            _id : req.params.id
+        })
+        res.render('exercise-details', {exercise})
+    }catch(err){
+        console.log(err)
+    }
 }
 
-
-
-
-
-
-
- // Insert Exercise to Database
-//  async function insertDymmyExerciseData(){
-//      try {
-//          await Exercise.insertMany([
-//              {
-//              "title": "5 Min Daily Stretch - An everyday, full body routine", 
-//              "videoURL": "https://www.youtube.com/watch?v=Ef6LwAaB3_E", 
-//              "isFavorite": "false", 
-//              },
-//              {
-//               "title": "5 Min. Morning Stretch | Full Body Flexibility Routine for Beginners", 
-//               "videoURL": "https://www.youtube.com/watch?v=sAf67xFS-qE", 
-//               "isFavorite": "false", 
-//              }
-//          ])
-//      } catch (error) {
-//          console.log('err', + error)
-//      }
-//  }
-// insertDymmyExerciseData()
+}
