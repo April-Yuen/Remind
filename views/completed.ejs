@@ -1,19 +1,17 @@
 <%- include("partials/layout/header") %> 
-<main id="completed-main" class="flex-grow">
-    <section class="completed">
-        <div>
-            <!-- <img src="http://placekitten.com/450/300"></img> -->
-        </div>
-        <div>
-            <section class="completed-header">
-                <h2>Exercise Title</h2>
-                <button type="button" class="favorite-button" id="heart" aria-label="favorite">
-                    <i class="fa-solid fa-heart"></i>
-                </button>
-            </section>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis sapiente culpa debitis!</p>
-            <button class="completed-button">Completed</button>
-        </div>
-    </section>
+<main id="completed-main" class="flex-grow px-10">
+    <h1 class="text-2xl text-slate-500">Completed Exercises</h1>
+    <ul class="mt-10 space-y-10">
+        <% completed.forEach(completed => { %> 
+            <li class="relative overflow-hidden rounded-lg shadow-xl shadow-slate-300">
+                <a href="/exercises/<%= completed._id %>">
+                   <img src="img/thumbnail.jpg" alt="exercise thumbnail"> 
+                    <div class="absolute inset-0 z-10 bg-gradient-to-t from-black">
+                       <span class="absolute bottom-0 z-20 p-5 text-lg text-white text-ellipsis"><%= completed.title %></span>
+                    </div>
+                </a>
+            </li>
+        <% }) %> 
+    </ul>
 </main>
 <%- include("partials/layout/footer") %> 
