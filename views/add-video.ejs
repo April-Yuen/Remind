@@ -1,0 +1,27 @@
+<%if (infoSubmitObj != '') {%>
+    <%= infoSubmitObj %>
+<% } %>
+
+<% if(infoErrorsObj != '') {%>
+    <%= infoErrorsObj[0].message %>
+
+<% } %>
+
+<h1>Add a Video</h1>
+<form action="/add-video" method="POST">
+    <div>
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" placeholder="Title" required >
+    </div>
+    <div>
+        <label for="videoURL" class="form-label">Video URL</label>
+        <input type="url" name="videoURL" class="form-control"id="videoURL" placeholder="Video URL" required>
+    </div>
+    <div>
+        <label for="description" class="form-label">Description</label>
+        <textarea type="text" name="description" class="form-control"id="description" placeholder="Description"></textarea>
+    </div>
+    <div>
+        <button type="submit">Submit Video</button>
+    </div>
+</form>

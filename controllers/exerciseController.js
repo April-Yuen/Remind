@@ -1,4 +1,5 @@
 require('../database/connectDB')
+const { response } = require('express');
 const Exercise = require("../models/Exercise");
 
 module.exports = {
@@ -75,4 +76,64 @@ module.exports = {
     addExercisePage: (req, res) => {
         res.render("add-exercise");
     }
+}
+// Get add-video
+addVideo : async(req, res) => {
+    const infoErrorsObj = req.flash("infoErrors")
+    const infoSubmitObj = req.flash("infoSubmit")
+    res.render('add-video', {title: "Remind Exercise - Add a Video", infoErrorsObj, infoSubmitObj})
+},
+
+addVideoOnPost : async(req, res) => {
+     try {
+        const {
+            title, 
+            videoURL, 
+            description, 
+            isFavorite
+        } = req.body;
+        console.log(req.body)
+
+        const SubmittedVideoUrlExists = await Exercise.findOne({
+            videoURL
+        });
+        if(SubmittedVideoUrlExists) {
+            response.json({success: false, message: "An exercise with that video url already exists."})
+            return;
+        }
+        const newExercise = {
+            title, 
+            videoURL,
+            description,
+            isFavorite
+        }
+        const createdExercise = await Exercise.create(newExercise)
+        req.flash('infoSubmit', "Video has been added.")
+        res.redirect('/add-video')
+
+        
+      
+    }catch (error) {
+        if(error.name === "ValidationError"){
+            response.status(400).json({success: false, message: error.message})
+        }else{
+            console.error(error);
+            response.status(500).json({success: false, message: "Server Error"})
+            req.flash('infoErrors', 'Video cannot be added.')
+            res.redirect("/add-video")
+        }
+      }
+ },
+ 
+exerciseDetails : async(req,res)=>{
+    try{
+        const exercise = await Exercise.findOne({
+            _id : req.params.id
+        })
+        res.render('exercise-details', {exercise})
+    }catch(err){
+        console.log(err)
+    }
+}
+
 }

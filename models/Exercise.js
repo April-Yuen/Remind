@@ -9,10 +9,21 @@ const ExerciseSchema = new mongoose.Schema({
     },
      videoURL: {
         type: String,
+         validate:{
+          validator: function(v){
+             return /^https:\/\/www.youtube.com\/.*$/.test(v)
+          },
+          message: props => `${props.value} is not a valid youtube link.`
+         },
         required: [true, "Please enter a video url"], 
         unique: true, 
         trim: true
      },
+     description: {
+      type: String,
+      required: [true, "Please enter a video url"], 
+      trim: true
+   },
      isFavorite: {
         type: Boolean,
         
