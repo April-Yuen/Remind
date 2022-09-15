@@ -5,7 +5,7 @@ const exerciseController = require('../controllers/exerciseController')
 router.get('/', exerciseController.getExercise)
 router.get('/add-video', exerciseController.addVideo)
 router.post('/add-video', exerciseController.addVideoOnPost)
-router.put('/markFavorite', exerciseController.markFavorite )  //shooting from the hip here, not sure the route
+router.put('/markFavorite', exerciseController.markFavorite)
 router.get('/exercises', exerciseController.exercisesPage)
 router.get('/exercises/favorites', exerciseController.favoritesPage)
 router.get('/exercises/completed', exerciseController.completedPage)
