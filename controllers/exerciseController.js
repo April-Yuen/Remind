@@ -62,5 +62,17 @@ module.exports = {
         } catch (error) {
             console.error(error);
         }
+    },
+    exercisesPage: async (req, res) => {
+        try {
+            const exercises = await Exercise.find();
+
+            res.render("exercises", { exercises });
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    addExercisePage: (req, res) => {
+        res.render("add-exercise");
     }
 }
