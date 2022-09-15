@@ -1,3 +1,36 @@
 <%- include("partials/layout/header") %> 
   <h1 class="text-2xl text-slate-500"><%= exercise.title %></h1>
+  <iframe width="560"
+    height="315"
+    src="<%= exercise.videoURL %>"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    class="w-full shadow-lg rounded-2xl mt-14"
+  >
+  </iframe>
+	<section class="flex flex-col mt-6 space-y-6">
+		<div class="flex space-x-4">
+			<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title %></h2>
+			<button type="button" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.isFavorite ? 'bg-coral/50' : '' %>" id="heart" aria-label="favorite" test="<%=exercise._id %>">
+				<i class="fa-heart <%= exercise.isFavorite ? 'fa-solid' : 'fa-regular' %>"></i>
+			</button>
+		</div>
+		<div>
+			<p class="leading-loose text-slate-600">
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea tenetur libero nesciunt 
+				cumque unde deleniti hic quod aliquid autem 
+				eveniet illum fuga cum, excepturi magni sunt quibusdam eaque, error veritatis.
+			</p>
+		</div>
+		<button class="py-4 text-lg text-white rounded-md bg-coral">
+			<%- exercise.completed ? "<i class='fa-solid fa-circle-check'></i>" : "<i class='fa-regular fa-circle-check'></i>" %>
+			Mark as completed
+		</button>
+		<button class="py-4 text-lg border rounded-md text-coral border-coral">
+			<i class="fa-solid fa-trash"></i>
+			Delete
+		</button>
+	</section>
 <%- include("partials/layout/footer") %> 

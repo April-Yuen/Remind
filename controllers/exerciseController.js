@@ -33,7 +33,9 @@ module.exports = {
                 isFavorite: true
             });
             
-            res.render("favorite", { favorites });
+            const noFavorites = favorites.length === 0;
+            
+            res.render("favorite", { favorites, noFavorites });
         } catch (error) {
             console.error(error);
         }
@@ -52,6 +54,9 @@ module.exports = {
     exerciseDetails: async (req, res) => {
         try {
             const exercise = await Exercise.findById(req.params.id);
+
+            const embedVideoUrl = exercise.videoURL.replace("watch?v=", "embed/");
+            exercise.videoURL = embedVideoUrl;
             
             res.render("exercise", { exercise });
         } catch (error) {
