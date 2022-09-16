@@ -1,1 +1,15 @@
-Exercises page
+<%- include("partials/layout/header") %> 
+<h1 class="text-2xl text-slate-500">All Exercises</h1>
+<ul class="mt-10 space-y-10">
+    <% exercises.forEach(exercise => { %> 
+        <li class="relative overflow-hidden rounded-lg shadow-xl shadow-slate-300">
+            <a href="/exercises/<%= exercise._id %>">
+               <img src="/img/thumbnail.jpg" alt="exercise thumbnail"> 
+                <div class="absolute inset-0 z-10 bg-gradient-to-t from-black">
+                   <span class="absolute bottom-0 z-20 p-5 text-lg text-white text-ellipsis"><%= exercise.title %></span>
+                </div>
+            </a>
+        </li>
+    <% }) %> 
+</ul>
+<%- include("partials/layout/footer") %> 
