@@ -16,7 +16,7 @@
 	<section class="flex flex-col mt-6 space-y-6">
 		<div class="flex space-x-4">
 			<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></h2>
-			<button type="button" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.isFavorite ? 'bg-coral/50' : '' %>" id="heart" aria-label="favorite" test="<%=exercise._id %>">
+			<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.isFavorite ? 'bg-coral/50' : '' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
 				<i class="fa-heart <%= exercise.isFavorite ? 'fa-solid' : 'fa-regular' %>"></i>
 			</button>
 		</div>
@@ -26,7 +26,7 @@
 			eveniet illum fuga cum, excepturi magni sunt quibusdam eaque, error veritatis.
 			</p>
 		</div>
-		<button class="py-4 text-lg text-white rounded-md bg-coral">Mark as completed</button>
+		<button id="markAsCompleteButton" class="py-4 text-lg text-white rounded-md bg-coral" data-id="<%= exercise._id %>"><%= exercise.isComplete ? "Mark as completed" : "Completed" %></button>
 		<a href="/exercises/<%= exercise._id %>" class="py-4 text-lg text-center border rounded-md text-coral border-coral">
 			View Details
 		</a>

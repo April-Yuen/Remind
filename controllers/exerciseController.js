@@ -19,11 +19,26 @@ module.exports = {
     },
     markFavorite: async (req, res) => {
         try {
-            await Exercise.findByIdAndUpdate({ _id: req.body.todoIdFromJSFile },
-                {
-                    isFavorite: true,
-                })
-            res.render('index', { isFavorite: true })
+            const exercise = await Exercise.findById(req.body.exerciseId);
+            const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
+                isFavorite: !exercise.isFavorite
+            }, { new: true });
+
+            res.json(updatedExercise);
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    markComplete: async (req, res) => {
+        try {
+            const exercise = await Exercise.findById(req.body.exerciseId);
+            const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
+                isComplete: !exercise.isComplete
+            }, { new: true });
+
+            console.log(updatedExercise);
+
+            res.json(updatedExercise);
         } catch (err) {
             console.log(err)
         }

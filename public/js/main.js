@@ -1,25 +1,41 @@
-const todoItem = document.querySelector(".not")
+const favoriteButton = document.querySelector("#favoriteButton");
+const markAsCompleteButton = document.querySelector("#markAsCompleteButton");
 
-Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markFavorite)
-})
-document.querySelector('.not').addEventListener('click', markFavorite)
+favoriteButton.addEventListener('click', markFavorite);
+markAsCompleteButton.addEventListener('click', markComplete);
 
-async function markFavorite(){
-    const todoId = this.attributes[4].value
-    
-    try{
-        const response = await fetch('/markFavorite', {
+async function markFavorite() {
+    const exerciseId = this.dataset.id;
+
+    try {
+        await fetch('/markFavorite', {
             method: 'put',
-            headers: {'Content-type': 'application/json'},
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                exerciseId
             })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
+        });
+
+        window.location.reload();
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+async function markComplete() {
+    const exerciseId = this.dataset.id;
+
+    try {
+        await fetch('/markComplete', {
+            method: 'put',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                exerciseId
+            })
+        });
+
+        window.location.reload();
+    } catch (err) {
+        console.log(err);
     }
 }
