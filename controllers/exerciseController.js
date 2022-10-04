@@ -89,7 +89,7 @@ module.exports = {
         }
     },
     addExercisePage: (req, res) => {
-        res.render("add-exercise");
+        res.render("add-exercise", { success: null, message: null });
     },
     addVideo: async (req, res) => {
         const infoErrorsObj = req.flash("infoErrors")
@@ -101,35 +101,31 @@ module.exports = {
             const {
                 title,
                 videoURL,
-                description,
-                isFavorite
+                description
             } = req.body;
-            console.log(req.body)
 
             const SubmittedVideoUrlExists = await Exercise.findOne({
                 videoURL
             });
+
             if (SubmittedVideoUrlExists) {
-                response.json({ success: false, message: "An exercise with that video url already exists." })
+                res.render("add-exercise", { success: false, message: "An exercise with that video url already exists." })
                 return;
             }
+
             const newExercise = {
                 title,
                 videoURL,
-                description,
-                isFavorite
+                description
             }
-            const createdExercise = await Exercise.create(newExercise)
-            req.flash('infoSubmit', "Video has been added.")
-            res.redirect('/add-video')
+            const createdExercise = await Exercise.create(newExercise);
+            res.redirect('/exercises/' + createdExercise._id);
         } catch (error) {
             if (error.name === "ValidationError") {
-                response.status(400).json({ success: false, message: error.message })
+                res.render("add-exercise", { success: false, message: error.message })
             } else {
                 console.error(error);
-                response.status(500).json({ success: false, message: "Server Error" })
-                req.flash('infoErrors', 'Video cannot be added.')
-                res.redirect("/add-video")
+                res.render("add-exercise", { success: false, message: "Server Error" });
             }
         }
     }

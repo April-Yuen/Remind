@@ -1,5 +1,12 @@
 <%- include("partials/layout/header") %> 
 <h1 class="my-5 text-2xl text-slate-500">Add Exercise</h1>
+
+<% if (success != null && !success) { %>
+    <section class="bg-red-100 text-red-500 font-semibold border border-red-500 p-5 rounded-md my-5">
+        <p><%= message %></p>
+    </section>
+<% } %>
+
 <form action="/add-video" method="POST" class="space-y-5">
     <div>
         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
