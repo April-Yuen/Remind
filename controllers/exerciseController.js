@@ -59,7 +59,7 @@ module.exports = {
     completedPage: async (req, res) => {
         try {
             const completed = await Exercise.find({
-                completed: true
+                isComplete: true
             });
 
             res.render("completed", { completed });
