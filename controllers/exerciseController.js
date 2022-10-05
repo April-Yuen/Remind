@@ -14,7 +14,7 @@ module.exports = {
             res.render('index', { title: "Remind Exercise - Home", latest })
         } catch (error) {
             console.error(error);
-            res.status(500).json({ success: false, message: error.message })
+            res.render("error", { message: error.message });
         }
     },
     markFavorite: async (req, res) => {
@@ -62,7 +62,9 @@ module.exports = {
                 isComplete: true
             });
 
-            res.render("completed", { completed });
+            const noCompleted = completed.length === 0;
+
+            res.render("completed", { completed, noCompleted });
         } catch (error) {
             console.error(error);
         }
