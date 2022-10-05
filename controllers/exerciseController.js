@@ -85,7 +85,9 @@ module.exports = {
         try {
             const exercises = await Exercise.find();
 
-            res.render("exercises", { exercises });
+            const noExercises = exercises.length === 0;
+
+            res.render("exercises", { exercises, noExercises });
         } catch (error) {
             console.error(error);
         }
