@@ -1,0 +1,32 @@
+<%- include("partials/layout/header") %>
+<section class="w-full lg:w-6/12 2xl:w-5/12 mx-auto">
+    <h1 class="my-5 text-2xl text-slate-500">Login</h1>
+
+    <% if (success != null && !success) { %>
+        <section class="bg-red-100 text-red-500 font-semibold border border-red-500 p-5 rounded-md my-5">
+            <p><%= message %></p>
+        </section>
+    <% } %>
+
+    <form action="/login" method="POST" class="space-y-5">
+        <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <div class="mt-1">
+                <input type="email" name="email" id="email" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-coral focus:ring-coral sm:text-sm" required>
+            </div>
+        </div>
+        <div>
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+            <div class="mt-1">
+                <input type="password" name="password" id="password" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-coral focus:ring-coral sm:text-sm" required>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-coral hover:bg-coral-dark focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2">Log in</button>
+        </div>
+        <div>
+            <small>No account? Create a free one by <a href="/auth/sign-up" class="text-coral">signing up</a>.</small>
+        </div>
+    </form>
+</section>
+<%- include("partials/layout/footer") %>

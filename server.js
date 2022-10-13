@@ -28,7 +28,9 @@ app.use(flash())
 
 
 const routes = require('./routes/exerciseRoutes.js')
+const authRoutes = require('./routes/authRoutes.js')
 app.use("/", routes)
+app.use("/auth", authRoutes)
 
 
 // Port connection

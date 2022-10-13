@@ -1,83 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-   <meta charset="utf-8">
-   <meta name="description" content="This is where your description goes">
-   <meta name="keywords" content="one, two, three">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@300;600;800&display=swap" rel="stylesheet">	
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <title>Re:mind Homepage</title>
-
-		<!-- external CSS link -->
-		
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		<header id="header">
-			<div class = "logo-name">
-				<img class = "logo" src="img/logoOnlyHead.png" alt="The logo for our awesome app">
-				<h2 class = "header-title">Re:Mind</h2>
-			</div>
-			<nav>
-				<ul class = "nav-menu">
-					<li class = "nav-item">
-						<a href="/" class = "nav-link">Home</a>
-					</li>
-					<li class = "nav-item">
-						<a href="/completed" class = "nav-link">Completed Exercise</a>
-					</li>
-					<li class = "nav-item">
-						<a href="/favorite" class = "nav-link">Favorited</a>
-					</li>
-				</ul>
-				<div class = "hamburger">
-					<span class = "bar"></span>
-					<span class = "bar"></span>
-					<span class = "bar"></span>
-				</div>
-			</nav>
-		</header>
-		<main>
-			<section class="homepage">
-				<% if(latest != "") {%>
-					<% latest.forEach(exercise => {%>
-						<iframe width="560"
+<%- include("partials/layout/header") %>
+	<section class="lg:flex lg:gap-6">
+		<section class="lg:w-1/2">
+			<% if(latest != "") {%>
+				<% latest.forEach(exercise => {%>
+					<iframe width="560"
 							height="315"
 							src="<%= exercise.videoURL %>"
 							title="YouTube video player"
 							frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen
-						>
-						</iframe>
-				
-			</section>
-			<section id="exercise-description">
-				<div id="exercise-header">
-					<h2 class="favorite-button" id="title"><%- exercise.title%></h2>
-					<button type="button" class="favorite-button <%= exercise.isFavorite === true ? 'favorite' : 'not'%>" id="heart" aria-label="favorite" test= " <%=exercise._id %>">
-						<i class="fa-solid fa-heart"></i>
-					</button>
-				</div>
-				<div id="exercise-paragraph">
-					<p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea tenetur libero nesciunt 
-					cumque unde deleniti hic quod aliquid autem 
+							class="w-full shadow-lg rounded-2xl mt-14"
+					>
+					</iframe>
+		</section>
+		<section class="flex flex-col mt-6 space-y-6 lg:w-1/2">
+			<div class="flex justify-between">
+				<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></h2>
+				<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.isFavorite ? 'bg-coral/50' : '' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
+					<i class="fa-heart <%= exercise.isFavorite ? 'fa-solid' : 'fa-regular' %>"></i>
+				</button>
+			</div>
+			<div>
+				<p class="leading-loose text-slate-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea tenetur libero nesciunt
+					cumque unde deleniti hic quod aliquid autem
 					eveniet illum fuga cum, excepturi magni sunt quibusdam eaque, error veritatis.
-					</p>
-					<button class="completed-button center">Mark as completed</button>
-					<a href="/exercise/<%= exercise._id %>">
-						View Details
-					</a>
-				</div>
-				<% }) %>
-				<% } else { %>
-					<p>No items found.</p>
+				</p>
+			</div>
+			<button id="markAsCompleteButton" class="py-4 text-lg text-white rounded-md bg-coral" data-id="<%= exercise._id %>">
+				<%- exercise.isComplete ? "<i class='fa-solid fa-circle-check'></i> Completed" : "<i class='fa-regular fa-circle-check'></i> Mark as completed" %>
+			</button>
+			<a href="/exercises/<%= exercise._id %>" class="py-4 text-lg text-center border rounded-md text-coral border-coral">
+				View Details
+			</a>
+			<% }) %>
+			<% } else { %>
+				<p>No items found.</p>
 			<% } %>
-			</section>
-		</main>
-		<script type="text/javascript" src="js/main.js"></script>
-	</body>
-</html>
+		</section>
+	</section>
+<%- include("partials/layout/footer") %>

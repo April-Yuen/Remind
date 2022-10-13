@@ -1,0 +1,43 @@
+<%- include("partials/layout/header") %>
+<section class="w-full lg:w-6/12 2xl:w-5/12 mx-auto">
+    <h1 class="my-5 text-2xl text-slate-500">Add Exercise</h1>
+
+    <% if (success != null && !success) { %>
+        <section class="bg-red-100 text-red-500 font-semibold border border-red-500 p-5 rounded-md my-5">
+            <p><%= message %></p>
+        </section>
+    <% } %>
+
+    <form action="/add-video" method="POST" class="space-y-5">
+        <div>
+            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+            <div class="mt-1">
+              <input type="text" name="title" id="title" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-coral focus:ring-coral sm:text-sm" required>
+            </div>
+        </div>
+        <div>
+            <label for="videoURL" class="block text-sm font-medium text-gray-700">Video URL</label>
+            <div class="mt-1">
+              <input type="text" name="videoURL" id="videoURL" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-coral focus:ring-coral sm:text-sm" required>
+            </div>
+            <div class="flex mt-2 space-x-2 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd" d="M19 10.5a8.5 8.5 0 11-17 0 8.5 8.5 0 0117 0zM8.25 9.75A.75.75 0 019 9h.253a1.75 1.75 0 011.709 2.13l-.46 2.066a.25.25 0 00.245.304H11a.75.75 0 010 1.5h-.253a1.75 1.75 0 01-1.709-2.13l.46-2.066a.25.25 0 00-.245-.304H9a.75.75 0 01-.75-.75zM10 7a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                </svg>
+                <p class="text-sm">
+                    Only YouTube URLs supported
+                </p>
+            </div>
+        </div>
+        <div>
+            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+            <div class="mt-1">
+              <textarea rows="4" name="description" id="description" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-coral focus:ring-coral sm:text-sm" required></textarea>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-coral hover:bg-coral-dark focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2">Add Exercise</button>
+        </div>
+    </form>
+</section>
+<%- include("partials/layout/footer") %>
