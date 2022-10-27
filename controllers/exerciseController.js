@@ -8,10 +8,12 @@ module.exports = {
             const limitNumber = 1
             let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
 
-            const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
-            latest[0].videoURL = embedVideoUrl;
+            if(latest.length > 0){
+              const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
+              latest[0].videoURL = embedVideoUrl
+            }
 
-            res.render('index', { title: "Remind Exercise - Home", latest })
+            res.render('index', { title: "Remind Exercise - Home", latest, user : req.user })
         } catch (error) {
             console.error(error);
             res.render("error", { message: error.message });
@@ -51,7 +53,7 @@ module.exports = {
 
             const noFavorites = favorites.length === 0;
 
-            res.render("favorite", { favorites, noFavorites });
+            res.render("favorite", { favorites, noFavorites, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -64,7 +66,7 @@ module.exports = {
 
             const noCompleted = completed.length === 0;
 
-            res.render("completed", { completed, noCompleted });
+            res.render("completed", { completed, noCompleted, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -76,7 +78,7 @@ module.exports = {
             const embedVideoUrl = exercise.videoURL.replace("watch?v=", "embed/");
             exercise.videoURL = embedVideoUrl;
 
-            res.render("exercise", { exercise });
+            res.render("exercise", { exercise , user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -87,7 +89,7 @@ module.exports = {
 
             const noExercises = exercises.length === 0;
 
-            res.render("exercises", { exercises, noExercises });
+            res.render("exercises", { exercises, noExercises, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -102,11 +104,13 @@ module.exports = {
     },
     addVideoOnPost: async (req, res) => {
         try {
-            const {
+            let {
                 title,
                 videoURL,
                 description
             } = req.body;
+
+            videoURL = videoURL.split('&')[0]
 
             const SubmittedVideoUrlExists = await Exercise.findOne({
                 videoURL
