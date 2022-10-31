@@ -20,13 +20,29 @@ module.exports = {
         }
     },
     markFavorite: async (req, res) => {
+        let videoId = req.body.exerciseId
+        let userId = (req.user.id).toString()
+        console.log(userId)
+        console.log(videoId)
         try {
             const exercise = await Exercise.findById(req.body.exerciseId);
-            const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
-                isFavorite: !exercise.isFavorite
-            }, { new: true });
 
-            res.json(updatedExercise);
+            let arr = exercise.favoritesBy
+
+            arr.push(userId)
+
+            await exercise.save()
+
+            req.user.favorites.push(videoId)
+
+            await req.user.save()
+
+            // const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
+            //     isFavorite: !exercise.isFavorite
+            // }, { new: true });
+            console.log('Marked Like', videoId)
+            res.json('Marked Like')
+            // res.json(updatedExercise);
         } catch (err) {
             console.log(err)
         }

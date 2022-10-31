@@ -17,8 +17,11 @@
 		<section class="flex flex-col mt-6 space-y-6 lg:w-1/2">
 			<div class="flex justify-between">
 				<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></h2>
-				<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.isFavorite ? 'bg-coral/50' : '' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
+				<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.favoritesBy.includes(user.id) === true ? 'bg-coral/50' : '' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
+					<i class="fa-heart <%= exercise.favoritesBy.includes(user.id) === true ? 'fa-solid' : 'fa-regular' %>"></i>
+					<% /* %>
 					<i class="fa-heart <%= exercise.isFavorite ? 'fa-solid' : 'fa-regular' %>"></i>
+					<% */ %>
 				</button>
 			</div>
 			<div>

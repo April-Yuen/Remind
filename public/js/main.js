@@ -1,3 +1,5 @@
+// const { response } = require("express");
+
 const favoriteButton = document.querySelector("#favoriteButton");
 const markAsCompleteButton = document.querySelector("#markAsCompleteButton");
 
@@ -6,16 +8,19 @@ markAsCompleteButton.addEventListener('click', markComplete);
 
 async function markFavorite() {
     const exerciseId = this.dataset.id;
+    console.log(exerciseId)
 
     try {
         await fetch('/markFavorite', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
-                exerciseId
+                'exerciseId' : exerciseId
             })
         });
 
+        const data = await response.json()
+        console.log(data)
         window.location.reload();
     } catch (err) {
         console.log(err);
