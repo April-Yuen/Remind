@@ -22,7 +22,19 @@
             <% favorites.forEach(favorite => { %> 
                 <li class="relative overflow-hidden rounded-lg shadow-xl shadow-slate-300">
                     <a href="/exercises/<%= favorite._id %>">
+                        <iframe width="560"
+                        height="315"
+                        src="<%= favorite.videoURL %>"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        class="w-full shadow-lg rounded-2xl mt-14"
+                >
+                </iframe>
+                        <% /* %>
                        <img src="/img/thumbnail.jpg" alt="exercise thumbnail"> 
+                       <% */ %>
                         <div class="absolute inset-0 z-10 bg-gradient-to-t from-black">
                            <span class="absolute bottom-0 z-20 p-5 text-lg text-white text-ellipsis"><%= favorite.title %></span>
                         </div>

@@ -63,13 +63,13 @@ module.exports = {
     },
     favoritesPage: async (req, res) => {
         try {
-            const favorites = await Exercise.find({
-                isFavorite: true
-            });
+            const favoriteExercises = await Exercise.find();
+            let favExercises = favoriteExercises.filter(exercise => req.user.favorites.includes(exercise.id))
+            console.log(favExercises)
 
-            const noFavorites = favorites.length === 0;
+            const noFavorites = favExercises.length === 0;
 
-            res.render("favorite", { favorites, noFavorites, user: req.user });
+            res.render("favorite", { favorites: favExercises, noFavorites, user: req.user });
         } catch (error) {
             console.error(error);
         }

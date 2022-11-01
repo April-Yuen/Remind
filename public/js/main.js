@@ -1,6 +1,7 @@
 // const { response } = require("express");
 
-const favoriteButton = document.querySelector("#favoriteButton");
+const favoriteButton = document.querySelector(".favoriteButton");
+const notFavoriteButton = document.querySelector(".notFavoriteButton")
 const markAsCompleteButton = document.querySelector("#markAsCompleteButton");
 
 favoriteButton.addEventListener('click', markFavorite);
