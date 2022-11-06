@@ -21,7 +21,6 @@
         <ul class="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
             <% favorites.forEach(favorite => { %> 
                 <li class="relative overflow-hidden rounded-lg shadow-xl shadow-slate-300">
-                    <a href="/exercises/<%= favorite._id %>">
                         <iframe width="560"
                         height="315"
                         src="<%= favorite.videoURL %>"
@@ -38,7 +37,6 @@
                         <div class="absolute inset-0 z-10 bg-gradient-to-t from-black">
                            <span class="absolute bottom-0 z-20 p-5 text-lg text-white text-ellipsis"><%= favorite.title %></span>
                         </div>
-                    </a>
                 </li>
             <% }) %> 
         </ul>
