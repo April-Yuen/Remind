@@ -1,6 +1,6 @@
 require('../database/connectDB')
-const { response } = require('express');
 const Exercise = require("../models/Exercise");
+const { generateExerciseVideoThumbnail } = require("../utils/generateYoutubeThumbnail");
 
 module.exports = {
     getExercise: async (req, res) => {
@@ -8,12 +8,12 @@ module.exports = {
             const limitNumber = 1
             let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
 
-            if(latest.length > 0){
-              const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
-              latest[0].videoURL = embedVideoUrl
+            if (latest.length > 0) {
+                const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
+                latest[0].videoURL = embedVideoUrl
             }
 
-            res.render('index', { title: "Remind Exercise - Home", latest, user : req.user })
+            res.render('index', { title: "Remind Exercise - Home", latest, user: req.user })
         } catch (error) {
             console.error(error);
             res.render("error", { message: error.message });
@@ -51,9 +51,11 @@ module.exports = {
                 isFavorite: true
             });
 
+            const favoritesWithThumbnails = generateExerciseVideoThumbnail(favorites);
+
             const noFavorites = favorites.length === 0;
 
-            res.render("favorite", { favorites, noFavorites, user: req.user });
+            res.render("favorite", { favorites: favoritesWithThumbnails, noFavorites, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -64,9 +66,11 @@ module.exports = {
                 isComplete: true
             });
 
+            const completedWithThumbnails = generateExerciseVideoThumbnail(completed);
+
             const noCompleted = completed.length === 0;
 
-            res.render("completed", { completed, noCompleted, user: req.user });
+            res.render("completed", { completed: completedWithThumbnails, noCompleted, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -78,7 +82,7 @@ module.exports = {
             const embedVideoUrl = exercise.videoURL.replace("watch?v=", "embed/");
             exercise.videoURL = embedVideoUrl;
 
-            res.render("exercise", { exercise , user: req.user });
+            res.render("exercise", { exercise, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -87,9 +91,11 @@ module.exports = {
         try {
             const exercises = await Exercise.find();
 
+            const exercisesWithThumbnails = generateExerciseVideoThumbnail(exercises);
+
             const noExercises = exercises.length === 0;
 
-            res.render("exercises", { exercises, noExercises, user: req.user });
+            res.render("exercises", { exercises: exercisesWithThumbnails, noExercises, user: req.user });
         } catch (error) {
             console.error(error);
         }
