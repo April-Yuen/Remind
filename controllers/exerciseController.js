@@ -1,6 +1,6 @@
 require('../database/connectDB')
-const { response } = require('express');
 const Exercise = require("../models/Exercise");
+const { generateExerciseVideoThumbnail } = require("../utils/generateYoutubeThumbnail");
 
 module.exports = {
     getExercise: async (req, res) => {
@@ -8,12 +8,12 @@ module.exports = {
             const limitNumber = 1
             let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
 
-            if(latest.length > 0){
-              const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
-              latest[0].videoURL = embedVideoUrl
+            if (latest.length > 0) {
+                const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
+                latest[0].videoURL = embedVideoUrl
             }
 
-            res.render('index', { title: "Remind Exercise - Home", latest, user : req.user })
+            res.render('index', { title: "Remind Exercise - Home", latest, user: req.user })
         } catch (error) {
             console.error(error);
             res.render("error", { message: error.message });
@@ -25,7 +25,7 @@ module.exports = {
         console.log(userId)
         console.log(videoId)
         try {
-            const exercise = await Exercise.findById(req.body.exerciseId);
+            const exercise = await Exercise.findById(videoId);
 
             let arr = exercise.favoritesBy
 
@@ -42,6 +42,34 @@ module.exports = {
             // }, { new: true });
             console.log('Marked Like', videoId)
             res.json('Marked Like')
+            // res.json(updatedExercise);
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    // Put- Not Like Story
+    markNotFavorite: async (req, res) => {
+        let videoId = req.body.exerciseId
+        console.log(videoId)
+        try {
+            const exercise = await Exercise.findById(videoId);
+
+            exercise.favoritesBy = exercise.favoritesBy.filter(id => id.toString() !== req.user.id.toString())
+            console.log(exercise.favoritesBy)
+
+            await exercise.save()
+
+            req.user.favorites = req.user.favorites.filter(exercise => exercise !== videoId)
+
+            console.log(req.user.favorites)
+
+            await req.user.save()
+
+            // const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
+            //     isFavorite: !exercise.isFavorite
+            // }, { new: true });
+            console.log('Marked not like', videoId)
+            res.json('Marked not like')
             // res.json(updatedExercise);
         } catch (err) {
             console.log(err)
@@ -67,9 +95,13 @@ module.exports = {
             let favExercises = favoriteExercises.filter(exercise => req.user.favorites.includes(exercise.id))
             console.log(favExercises)
 
-            const noFavorites = favExercises.length === 0;
 
-            res.render("favorite", { favorites: favExercises, noFavorites, user: req.user });
+            const favoritesWithThumbnails = generateExerciseVideoThumbnail(favExercises);
+            console.log(favoritesWithThumbnails)
+
+            const noFavorites = favorites.length === 0;
+
+            res.render("favorite", { favorites: favoritesWithThumbnails, noFavorites, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -80,9 +112,11 @@ module.exports = {
                 isComplete: true
             });
 
+            const completedWithThumbnails = generateExerciseVideoThumbnail(completed);
+
             const noCompleted = completed.length === 0;
 
-            res.render("completed", { completed, noCompleted, user: req.user });
+            res.render("completed", { completed: completedWithThumbnails, noCompleted, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -94,7 +128,7 @@ module.exports = {
             const embedVideoUrl = exercise.videoURL.replace("watch?v=", "embed/");
             exercise.videoURL = embedVideoUrl;
 
-            res.render("exercise", { exercise , user: req.user });
+            res.render("exercise", { exercise, user: req.user });
         } catch (error) {
             console.error(error);
         }
@@ -103,9 +137,11 @@ module.exports = {
         try {
             const exercises = await Exercise.find();
 
+            const exercisesWithThumbnails = generateExerciseVideoThumbnail(exercises);
+
             const noExercises = exercises.length === 0;
 
-            res.render("exercises", { exercises, noExercises, user: req.user });
+            res.render("exercises", { exercises: exercisesWithThumbnails, noExercises, user: req.user });
         } catch (error) {
             console.error(error);
         }
