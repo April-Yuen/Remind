@@ -26,7 +26,7 @@ async function markFavorite() {
 
         const data = await response.json()
         console.log(data)
-        window.location.reload();
+        location.reload();
     } catch (err) {
         console.log(err);
     }
