@@ -91,6 +91,9 @@ module.exports = {
     },
     favoritesPage: async (req, res) => {
         try {
+            // Querying the database to find all the exercises the user marked as favorite. 
+            // Checking if the current logged in userid is in the exercise's favoritesBy array. 
+            // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
             const favoriteExercises = await Exercise.find({favoritesBy: {$elemMatch : {$eq: req.user.id}}});
             console.log(favoriteExercises)
 
