@@ -91,15 +91,14 @@ module.exports = {
     },
     favoritesPage: async (req, res) => {
         try {
-            const favoriteExercises = await Exercise.find();
-            let favExercises = favoriteExercises.filter(exercise => req.user.favorites.includes(exercise.id))
-            console.log(favExercises)
+            const favoriteExercises = await Exercise.find({favoritesBy: {$elemMatch : {$eq: req.user.id}}});
+            console.log(favoriteExercises)
 
 
-            const favoritesWithThumbnails = generateExerciseVideoThumbnail(favExercises);
+            const favoritesWithThumbnails = generateExerciseVideoThumbnail(favoriteExercises);
             console.log(favoritesWithThumbnails)
 
-            const noFavorites = favorites.length === 0;
+            const noFavorites = favoriteExercises.length === 0;
 
             res.render("favorite", { favorites: favoritesWithThumbnails, noFavorites, user: req.user });
         } catch (error) {

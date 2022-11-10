@@ -16,7 +16,7 @@ async function markFavorite() {
     console.log(exerciseId)
 
     try {
-        await fetch('/markFavorite', {
+        const response = await fetch('/markFavorite', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
