@@ -18,21 +18,29 @@
 			<div class="flex justify-between">
 				<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></h2>
 				<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton' : 'notfavoriteButton' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
-					<i class="fa-heart <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton' : 'notfavoriteButton' %>"></i>
+					<i class=" <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton fa-heart fa-solid' : 'notfavoriteButton fa-heart fa-regular' %>"></i>
 					<% /* %>
 					<i class="fa-heart <%= exercise.isFavorite ? 'fa-solid' : 'fa-regular' %>"></i>
 					<% */ %>
 				</button>
 			</div>
 			<div>
-				<p class="leading-loose text-slate-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea tenetur libero nesciunt
-					cumque unde deleniti hic quod aliquid autem
-					eveniet illum fuga cum, excepturi magni sunt quibusdam eaque, error veritatis.
+				<p class="leading-loose text-slate-600"><%- exercise.description%>
 				</p>
 			</div>
-			<button id="markAsCompleteButton" class="py-4 text-lg text-white rounded-md bg-coral" data-id="<%= exercise._id %>">
-				<%- exercise.isComplete ? "<i class='fa-solid fa-circle-check'></i> Completed" : "<i class='fa-regular fa-circle-check'></i> Mark as completed" %>
+			<button type= "button"
+			id="markAsCompleteButton" 
+			class="py-4 text-lg text-white rounded-md bg-coral <%= exercise.completedBy.includes(user.id) === true ? 'markAsCompleteButton' : 'markAsIncompleteButton' %>" id="check-circle"
+			aria-label="complete"
+			data-id="<%= exercise._id %>"> 
+				<i class="<%= exercise.completedBy.includes(user.id) === true ? 'markAsCompleteButton fa-cirlce-check fa-regular' : 'markAsIncompleteButton fa-circle-check fa-solid' %>"></i>Completed
+				<% /* %>
+				<i class="fa-heart <%= exercise.isComplete ? 'fa-solid' : 'fa-regular' %>">Mark As Complete</i>
+				<% */ %>
 			</button>
+
+				<!-- <%- exercise.isComplete ? "<i class='fa-solid fa-circle-check'></i> Completed" : "<i class='fa-regular fa-circle-check'></i> Mark as completed" %>
+			</button> -->
 			<a href="/exercises/<%= exercise._id %>" class="py-4 text-lg text-center border rounded-md text-coral border-coral">
 				View Details
 			</a>

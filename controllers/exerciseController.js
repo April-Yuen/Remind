@@ -76,15 +76,56 @@ module.exports = {
         }
     },
     markComplete: async (req, res) => {
+         let videoId = req.body.exerciseId
+        let userId = (req.user.id).toString()
+        console.log(userId)
+        console.log(videoId)
         try {
-            const exercise = await Exercise.findById(req.body.exerciseId);
-            const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
-                isComplete: !exercise.isComplete
-            }, { new: true });
+            const exercise = await Exercise.findById(videoId);
 
-            console.log(updatedExercise);
+            let arr = exercise.completedBy
 
-            res.json(updatedExercise);
+            arr.push(userId)
+
+            await exercise.save()
+
+            req.user.completed.push(videoId)
+
+            await req.user.save()
+
+            // const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
+            //     isFavorite: !exercise.isFavorite
+            // }, { new: true });
+            console.log('Marked Complete', videoId)
+            res.json('Marked Complete')
+            // res.json(updatedExercise);
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    markIncomplete: async (req, res) => {
+        let videoId = req.body.exerciseId
+        console.log(videoId)
+        try {
+            const exercise = await Exercise.findById(videoId);
+
+            exercise.completedBy = exercise.completedBy.filter(id => id.toString() !== req.user.id.toString())
+            console.log(exercise.completedBy)
+
+            await exercise.save()
+
+            req.user.completed = req.user.completed.filter(exercise => exercise !== videoId)
+
+            console.log(req.user.completed)
+
+            await req.user.save()
+
+            // const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
+            //     isFavorite: !exercise.isFavorite
+            // }, { new: true });
+            console.log('Marked Incomplete', videoId)
+            res.json('Marked Incomplete')
+            // res.json(updatedExercise);
         } catch (err) {
             console.log(err)
         }
@@ -110,15 +151,19 @@ module.exports = {
     },
     completedPage: async (req, res) => {
         try {
-            const completed = await Exercise.find({
-                isComplete: true
-            });
+            // Querying the database to find all the exercises the user marked as favorite. 
+            // Checking if the current logged in userid is in the exercise's favoritesBy array. 
+            // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
+            const completeExercises = await Exercise.find({completedBy: {$elemMatch : {$eq: req.user.id}}});
+            console.log(completeExercises)
 
-            const completedWithThumbnails = generateExerciseVideoThumbnail(completed);
 
-            const noCompleted = completed.length === 0;
+            const completedWithThumbnails = generateExerciseVideoThumbnail(completeExercises);
+            console.log(completedWithThumbnails)
 
-            res.render("completed", { completed: completedWithThumbnails, noCompleted, user: req.user });
+            const notComplete = completeExercises.length === 0;
+
+            res.render("completed", { completed: completedWithThumbnails, notComplete, user: req.user });
         } catch (error) {
             console.error(error);
         }
