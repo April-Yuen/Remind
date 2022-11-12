@@ -4,7 +4,7 @@ const exerciseController = require('../controllers/exerciseController')
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get('/', exerciseController.getIndex)
-router.get('/posts', exerciseController.getExercise)
+router.get('/posts', ensureAuth, exerciseController.getExercise)
 router.get('/add-video', ensureAuth, exerciseController.addVideo)
 router.post('/add-video',ensureAuth, exerciseController.addVideoOnPost)
 router.put('/markFavorite',ensureAuth, exerciseController.markFavorite)
