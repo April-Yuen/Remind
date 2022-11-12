@@ -3,6 +3,9 @@ const Exercise = require("../models/Exercise");
 const { generateExerciseVideoThumbnail } = require("../utils/generateYoutubeThumbnail");
 
 module.exports = {
+    getIndex: (req, res) => {
+        res.render("index.ejs");
+    },
     getExercise: async (req, res) => {
         try {
             const limitNumber = 1
@@ -13,7 +16,7 @@ module.exports = {
                 latest[0].videoURL = embedVideoUrl
             }
 
-            res.render('index', { title: "Remind Exercise - Home", latest, user: req.user })
+            res.render('posts', { title: "Remind Exercise - Home", latest, user: req.user })
         } catch (error) {
             console.error(error);
             res.render("error", { message: error.message });
