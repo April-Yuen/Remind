@@ -24,15 +24,27 @@ const ExerciseSchema = new mongoose.Schema({
       required: [true, "Please enter a video url"],
       trim: true
    },
-   isFavorite: {
-      type: Boolean,
-      required: true,
-      default: false
-   },
+   // isFavorite: {
+   //    type: Boolean,
+   //    required: true,
+   //    default: false
+   // },
    isComplete: {
       type: Boolean,
       required: true,
       default: false
+   },
+   completedBy: {
+      type: Array,
+      default: []
+   },
+   favoritesBy: {
+      type: Array,
+      default: []
+   },
+   user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
    },
 }, {
    timestamps: true
