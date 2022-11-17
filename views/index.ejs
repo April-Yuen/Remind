@@ -1,45 +1,26 @@
-<%- include("partials/layout/header") %>
-	<section class="lg:flex lg:gap-6">
-		<section class="lg:w-1/2">
-			<% if(latest != "") {%>
-				<% latest.forEach(exercise => {%>
-					<iframe width="560"
-							height="315"
-							src="<%= exercise.videoURL %>"
-							title="YouTube video player"
-							frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-							class="w-full shadow-lg rounded-2xl mt-14"
-					>
-					</iframe>
-		</section>
-		<section class="flex flex-col mt-6 space-y-6 lg:w-1/2">
-			<div class="flex justify-between">
-				<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></h2>
-				<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton' : 'notfavoriteButton' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
-					<i class="fa-heart <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton' : 'notfavoriteButton' %>"></i>
-					<% /* %>
-					<i class="fa-heart <%= exercise.isFavorite ? 'fa-solid' : 'fa-regular' %>"></i>
-					<% */ %>
-				</button>
-			</div>
-			<div>
-				<p class="leading-loose text-slate-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea tenetur libero nesciunt
-					cumque unde deleniti hic quod aliquid autem
-					eveniet illum fuga cum, excepturi magni sunt quibusdam eaque, error veritatis.
-				</p>
-			</div>
-			<button id="markAsCompleteButton" class="py-4 text-lg text-white rounded-md bg-coral" data-id="<%= exercise._id %>">
-				<%- exercise.isComplete ? "<i class='fa-solid fa-circle-check'></i> Completed" : "<i class='fa-regular fa-circle-check'></i> Mark as completed" %>
+<%- include("partials/layout/landingHeader") %>
+	
+<div class="hero min-h-screen bg-base-200">
+	<div class="hero-content lg:flex-row">
+	  <img src="/img/thumbnail.jpg" class="max-w-md rounded-lg shadow-2xl " />
+	  <div>
+		
+		<h1 class="text-5xl font-bold leading-loose text-coral-dark flex items-center space-x-8"> 
+			<!-- <img class="background-slate-700 mr-2" src="/img/remind-logo.svg" alt="The logo for our awesome app"> -->
+			Re:Mind</h1>
+		<p class="py-6 leading-loose text-slate-600">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+
+		<div class="mt-8 flex gap-x-2 sm:justify-center">
+			<button class="font-semibold">
+				<a class="py-4 px-6 ml-4 text-md text-white rounded-md bg-coral hover:bg-coral-dark shadow" href="/auth/login" role="button">Login</a>
 			</button>
-			<a href="/exercises/<%= exercise._id %>" class="py-4 text-lg text-center border rounded-md text-coral border-coral">
-				View Details
-			</a>
-			<% }) %>
-			<% } else { %>
-				<p>No items found.</p>
-			<% } %>
-		</section>
-	</section>
+			<button class="font-semibold">
+				<a class="py-4 px-4 ml-4 text-md text-white rounded-md bg-coral hover:bg-coral-dark shadow" href="/auth/signup" role="button">Sign Up</a>
+			</button>
+		  </div>
+	  </div>
+	</div>
+  </div>
+
+
 <%- include("partials/layout/footer") %>

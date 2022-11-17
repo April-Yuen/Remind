@@ -34,6 +34,10 @@ const ExerciseSchema = new mongoose.Schema({
       required: true,
       default: false
    },
+   completedBy: {
+      type: Array,
+      default: []
+   },
    favoritesBy: {
       type: Array,
       default: []

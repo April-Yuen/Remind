@@ -1,0 +1,47 @@
+<%- include("partials/layout/header") %>
+	<section class="lg:flex lg:gap-6">
+		<section class="lg:w-1/2">
+			<% if(latest != "") {%>
+				<% latest.forEach(exercise => {%>
+					<iframe width="560"
+							height="315"
+							src="<%= exercise.videoURL %>"
+							title="YouTube video player"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+							class="w-full shadow-lg rounded-2xl mt-14"
+					>
+					</iframe>
+		</section>
+		<section class="flex flex-col mt-6 space-y-6 lg:w-1/2">
+			<div class="flex justify-between">
+				<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></h2>
+				<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton' : 'notfavoriteButton' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
+					<i class=" <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton fa-heart fa-solid' : 'notfavoriteButton fa-heart fa-regular' %>"></i>
+				</button>
+			</div>
+			<div>
+				<p class="leading-loose text-slate-600"><%- exercise.description%>
+				</p>
+			</div>
+			<button type= "button"
+			id="markAsCompleteButton" 
+			class="py-4 text-lg text-white rounded-md bg-coral <%= exercise.completedBy.includes(user.id) === true ? 'markAsCompleteButton' : 'markAsIncompleteButton' %>" id="check-circle"
+			aria-label="complete"
+			data-id="<%= exercise._id %>"> 
+				<i class="<%= exercise.completedBy.includes(user.id) === true ? 'markAsCompleteButton fa-cirlce-check fa-regular' : 'markAsIncompleteButton fa-circle-check fa-solid' %>"></i>Completed
+			</button>
+
+				<!-- <%- exercise.isComplete ? "<i class='fa-solid fa-circle-check'></i> Completed" : "<i class='fa-regular fa-circle-check'></i> Mark as completed" %>
+			</button> -->
+			<a href="/exercises/<%= exercise._id %>" class="py-4 text-lg text-center border rounded-md text-coral border-coral">
+				View Details
+			</a>
+			<% }) %>
+			<% } else { %>
+				<p>No items found.</p>
+			<% } %>
+		</section>
+	</section>
+<%- include("partials/layout/footer") %>
