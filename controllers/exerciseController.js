@@ -25,27 +25,25 @@ module.exports = {
     markFavorite: async (req, res) => {
         let videoId = req.body.exerciseId
         let userId = (req.user.id).toString()
+
         console.log(userId)
         console.log(videoId)
+
         try {
             const exercise = await Exercise.findById(videoId);
 
             let arr = exercise.favoritesBy
 
-            arr.push(userId)
+                arr.push(userId)
 
             await exercise.save()
 
-            req.user.favorites.push(videoId)
-
+                req.user.favorites.push(videoId)
             await req.user.save()
 
-            // const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
-            //     isFavorite: !exercise.isFavorite
-            // }, { new: true });
             console.log('Marked Like', videoId)
+
             res.json('Marked Like')
-            // res.json(updatedExercise);
         } catch (err) {
             console.log(err)
         }
@@ -58,7 +56,6 @@ module.exports = {
             const exercise = await Exercise.findById(videoId);
 
             exercise.favoritesBy = exercise.favoritesBy.filter(id => id.toString() !== req.user.id.toString())
-            console.log(exercise.favoritesBy)
 
             await exercise.save()
 
@@ -68,21 +65,17 @@ module.exports = {
 
             await req.user.save()
 
-            // const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
-            //     isFavorite: !exercise.isFavorite
-            // }, { new: true });
             console.log('Marked not like', videoId)
+
             res.json('Marked not like')
-            // res.json(updatedExercise);
         } catch (err) {
             console.log(err)
         }
     },
     markComplete: async (req, res) => {
-         let videoId = req.body.exerciseId
+        let videoId = req.body.exerciseId
         let userId = (req.user.id).toString()
-        console.log(userId)
-        console.log(videoId)
+
         try {
             const exercise = await Exercise.findById(videoId);
 
@@ -96,19 +89,16 @@ module.exports = {
 
             await req.user.save()
 
-            // const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
-            //     isFavorite: !exercise.isFavorite
-            // }, { new: true });
-            console.log('Marked Complete', videoId)
+            console.log('Marked Complete', videoId, userId)
             res.json('Marked Complete')
-            // res.json(updatedExercise);
+
         } catch (err) {
             console.log(err)
         }
     },
     markIncomplete: async (req, res) => {
         let videoId = req.body.exerciseId
-        console.log(videoId)
+
         try {
             const exercise = await Exercise.findById(videoId);
 
@@ -123,12 +113,8 @@ module.exports = {
 
             await req.user.save()
 
-            // const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
-            //     isFavorite: !exercise.isFavorite
-            // }, { new: true });
             console.log('Marked Incomplete', videoId)
             res.json('Marked Incomplete')
-            // res.json(updatedExercise);
         } catch (err) {
             console.log(err)
         }
@@ -139,11 +125,8 @@ module.exports = {
             // Checking if the current logged in userid is in the exercise's favoritesBy array. 
             // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
             const favoriteExercises = await Exercise.find({favoritesBy: {$elemMatch : {$eq: req.user.id}}});
-            console.log(favoriteExercises)
-
 
             const favoritesWithThumbnails = generateExerciseVideoThumbnail(favoriteExercises);
-            console.log(favoritesWithThumbnails)
 
             const noFavorites = favoriteExercises.length === 0;
 
@@ -158,11 +141,8 @@ module.exports = {
             // Checking if the current logged in userid is in the exercise's favoritesBy array. 
             // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
             const completeExercises = await Exercise.find({completedBy: {$elemMatch : {$eq: req.user.id}}});
-            console.log(completeExercises)
-
 
             const completedWithThumbnails = generateExerciseVideoThumbnail(completeExercises);
-            console.log(completedWithThumbnails)
 
             const notComplete = completeExercises.length === 0;
 

@@ -26,11 +26,7 @@ app.use(cors())
 
 // middleware to save data and cookie sessions
 app.use(cookieParser('RemindDatabaseSecure'))
-// app.use(session({
-//     secret: "RemindDatabaseSecretSession",
-//     saveUninitialized: false,
-//     resave: false
-// }))
+
 
 //Use forms for put / delete
 app.use(methodOverride("_method"))
