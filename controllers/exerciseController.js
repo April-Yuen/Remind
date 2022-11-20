@@ -153,7 +153,8 @@ module.exports = {
     },
     exerciseDetails: async (req, res) => {
         try {
-            const exercise = await Exercise.findById(req.params.id);
+            //check Exercise collection in database for ID and assign it to variable
+            const exercise = await Exercise.findById(req.params.id); 
 
             const embedVideoUrl = exercise.videoURL.replace("watch?v=", "embed/");
             exercise.videoURL = embedVideoUrl;
@@ -165,7 +166,8 @@ module.exports = {
     },
     exercisesPage: async (req, res) => {
         try {
-            const exercises = await Exercise.find();
+            //find all exercises and sort newest ontop
+            const exercises = await Exercise.find({}).sort({createdAt: -1});
 
             const exercisesWithThumbnails = generateExerciseVideoThumbnail(exercises);
 
@@ -191,6 +193,8 @@ module.exports = {
                 videoURL,
                 description
             } = req.body;
+            //add user to variable
+            let user =  req.user.id
 
             videoURL = videoURL.split('&')[0]
 
@@ -206,7 +210,8 @@ module.exports = {
             const newExercise = {
                 title,
                 videoURL,
-                description
+                description,
+                user  //add user to newExercise post
             }
             const createdExercise = await Exercise.create(newExercise);
             res.redirect('/exercises/' + createdExercise._id);

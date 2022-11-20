@@ -23,11 +23,11 @@ const ExerciseSchema = new mongoose.Schema({
       required: [true, "Please enter a video url"],
       trim: true
    },
-   isComplete: {
-      type: Boolean,
-      required: true,
-      default: false
-   },
+   // isComplete: {
+   //    type: Boolean,
+   //    required: true,
+   //    default: false
+   // },
    completedBy: {
       type: Array,
       default: []
