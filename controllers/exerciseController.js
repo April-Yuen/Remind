@@ -26,19 +26,17 @@ module.exports = {
         let videoId = req.body.exerciseId
         let userId = (req.user.id).toString()
 
-        console.log(userId)
-        console.log(videoId)
-
         try {
             const exercise = await Exercise.findById(videoId);
 
             let arr = exercise.favoritesBy
-
+                    //push's user id to exercise collection 
                 arr.push(userId)
 
             await exercise.save()
-
+                    //push's video id to User collection
                 req.user.favorites.push(videoId)
+
             await req.user.save()
 
             console.log('Marked Like', videoId)
@@ -50,8 +48,9 @@ module.exports = {
     },
     // Put- Not Like Story
     markNotFavorite: async (req, res) => {
+
         let videoId = req.body.exerciseId
-        console.log(videoId)
+
         try {
             const exercise = await Exercise.findById(videoId);
 
@@ -73,6 +72,7 @@ module.exports = {
         }
     },
     markComplete: async (req, res) => {
+
         let videoId = req.body.exerciseId
         let userId = (req.user.id).toString()
 
@@ -82,11 +82,11 @@ module.exports = {
             let arr = exercise.completedBy
 
             arr.push(userId)
-
+                  //saves to DB
             await exercise.save()
 
             req.user.completed.push(videoId)
-
+          
             await req.user.save()
 
             console.log('Marked Complete', videoId, userId)
@@ -108,8 +108,6 @@ module.exports = {
             await exercise.save()
 
             req.user.completed = req.user.completed.filter(exercise => exercise !== videoId)
-
-            console.log(req.user.completed)
 
             await req.user.save()
 
@@ -167,7 +165,8 @@ module.exports = {
     exercisesPage: async (req, res) => {
         try {
             //find all exercises and sort newest ontop
-            const exercises = await Exercise.find({}).sort({createdAt: -1});
+            const exercises = await Exercise.find({}).sort({createdAt: "desc"});
+            
 
             const exercisesWithThumbnails = generateExerciseVideoThumbnail(exercises);
 
