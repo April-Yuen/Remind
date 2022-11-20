@@ -8,9 +8,9 @@ module.exports = {
     },
     getExercise: async (req, res) => {
         try {
-            //find exercise by user who Posted
+            //find exercises that user posted
             const exercises = await Exercise.find({user:req.user.id});
-           //Generate thumbanaill
+           //Generate thumbnail
             const exercisesWithThumbnails = generateExerciseVideoThumbnail(exercises);
             //for conditional in EJS
             const noExercises = exercises.length === 0;
