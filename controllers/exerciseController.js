@@ -8,18 +8,17 @@ module.exports = {
     },
     getExercise: async (req, res) => {
         try {
-            const limitNumber = 1
-            let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
+            //find exercise by user who Posted
+            const exercises = await Exercise.find({user:req.user.id});
+           //Generate thumbanaill
+            const exercisesWithThumbnails = generateExerciseVideoThumbnail(exercises);
+            //for conditional in EJS
+            const noExercises = exercises.length === 0;
 
-            if (latest.length > 0) {
-                const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
-                latest[0].videoURL = embedVideoUrl
-            }
-
-            res.render('posts', { title: "Remind Exercise - Home", latest, user: req.user })
-        } catch (error) {
-            console.error(error);
-            res.render("error", { message: error.message });
+            res.render('posts', { title: "Remind Exercise - Home", exercises: exercises, noExercises, exercisesWithThumbnails, user: req.user })
+            } catch (error) {
+                console.error(error);
+                res.render("error", { message: error.message });
         }
     },
     markFavorite: async (req, res) => {
@@ -59,8 +58,6 @@ module.exports = {
             await exercise.save()
 
             req.user.favorites = req.user.favorites.filter(exercise => exercise !== videoId)
-
-            console.log(req.user.favorites)
 
             await req.user.save()
 
@@ -166,7 +163,7 @@ module.exports = {
         try {
             //find all exercises and sort newest ontop
             const exercises = await Exercise.find({}).sort({createdAt: "desc"});
-            
+
 
             const exercisesWithThumbnails = generateExerciseVideoThumbnail(exercises);
 
