@@ -63,7 +63,7 @@ module.exports = {
 
             console.log('Marked not like', videoId)
 
-            res.json('Marked not like')
+            res.json(`unfavorited ${videoId}`)
         } catch (err) {
             console.log(err)
         }
@@ -86,7 +86,7 @@ module.exports = {
           
             await req.user.save()
 
-            console.log('Marked Complete', videoId, userId)
+            console.log(`${userId} completed ${videoId}`)
             res.json('Marked Complete')
 
         } catch (err) {
@@ -107,7 +107,7 @@ module.exports = {
 
             await req.user.save()
 
-            console.log('Marked Incomplete', videoId)
+            console.log(`marked ${videoId} not completed`)
             res.json('Marked Incomplete')
         } catch (err) {
             console.log(err)
