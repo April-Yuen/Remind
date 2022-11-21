@@ -34,11 +34,11 @@ module.exports = {
 
             await exercise.save()
                     //push's video id to User collection
-                req.user.favorites.push(videoId)
+            //     req.user.favorites.push(videoId)
 
-            await req.user.save()
+            // await req.user.save()
 
-            console.log('Marked Like', videoId)
+            console.log(`${userId} favorited ${videoId}`)
 
             res.json('Marked Like')
         } catch (err) {
@@ -77,7 +77,7 @@ module.exports = {
             const exercise = await Exercise.findById(videoId);
 
             let arr = exercise.completedBy
-
+             //push's user id to exercise collection 
             arr.push(userId)
                   //saves to DB
             await exercise.save()
@@ -100,7 +100,6 @@ module.exports = {
             const exercise = await Exercise.findById(videoId);
 
             exercise.completedBy = exercise.completedBy.filter(id => id.toString() !== req.user.id.toString())
-            console.log(exercise.completedBy)
 
             await exercise.save()
 
