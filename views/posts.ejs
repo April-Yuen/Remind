@@ -1,47 +1,39 @@
 <%- include("partials/layout/header") %>
-	<section class="lg:flex lg:gap-6">
-		<section class="lg:w-1/2">
-			<% if(latest != "") {%>
-				<% latest.forEach(exercise => {%>
-					<iframe width="560"
-							height="315"
-							src="<%= exercise.videoURL %>"
-							title="YouTube video player"
-							frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-							class="w-full shadow-lg rounded-2xl mt-14"
-					>
-					</iframe>
-		</section>
-		<section class="flex flex-col mt-6 space-y-6 lg:w-1/2">
-			<div class="flex justify-between">
-				<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></h2>
-				<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton' : 'notfavoriteButton' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
-					<i class=" <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton fa-heart fa-solid' : 'notfavoriteButton fa-heart fa-regular' %>"></i>
-				</button>
-			</div>
-			<div>
-				<p class="leading-loose text-slate-600"><%- exercise.description%>
-				</p>
-			</div>
-			<button type= "button"
-			id="markAsCompleteButton" 
-			class="py-4 text-lg text-white rounded-md bg-coral <%= exercise.completedBy.includes(user.id) === true ? 'markAsCompleteButton' : 'markAsIncompleteButton' %>" id="check-circle"
-			aria-label="complete"
-			data-id="<%= exercise._id %>"> 
-				<i class="<%= exercise.completedBy.includes(user.id) === true ? 'markAsCompleteButton fa-cirlce-check fa-regular' : 'markAsIncompleteButton fa-circle-check fa-solid' %>"></i>Completed
-			</button>
+<h1 class="text-2xl text-slate-500"><%= user.userName %>'s Exercises</h1>
+<% if (noExercises) { %>
+<div class="mt-40 text-center">
+	<svg class="w-12 h-12 mx-auto text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+		<path fill="none" d="M18.21,16.157v-8.21c0-0.756-0.613-1.368-1.368-1.368h-1.368v1.368v1.368v6.841l-1.368,3.421h5.473L18.21,16.157z"></path>
+							<path fill="none" d="M4.527,9.316V7.948V6.579H3.159c-0.756,0-1.368,0.613-1.368,1.368v8.21l-1.368,3.421h5.473l-1.368-3.421V9.316z"></path>
+							<path fill="none" d="M14.766,5.895h0.023V5.21c0-2.644-2.145-4.788-4.789-4.788S5.211,2.566,5.211,5.21v0.685h0.023H14.766zM12.737,3.843c0.378,0,0.684,0.307,0.684,0.684s-0.306,0.684-0.684,0.684c-0.378,0-0.684-0.307-0.684-0.684S12.358,3.843,12.737,3.843z M10,1.448c0.755,0,1.368,0.613,1.368,1.368S10.755,4.185,10,4.185c-0.756,0-1.368-0.613-1.368-1.368S9.244,1.448,10,1.448z"></path>
+							<path fill="none" d="M14.789,6.579H5.211v9.578l1.368,1.368h6.841l1.368-1.368V6.579z M12.052,12.052H7.948c-0.378,0-0.684-0.306-0.684-0.684c0-0.378,0.306-0.684,0.684-0.684h4.105c0.378,0,0.684,0.306,0.684,0.684C12.737,11.746,12.431,12.052,12.052,12.052z M12.052,9.316H7.948c-0.378,0-0.684-0.307-0.684-0.684s0.306-0.684,0.684-0.684h4.105c0.378,0,0.684,0.307,0.684,0.684S12.431,9.316,12.052,9.316z"></path>
+	</svg>
+	<h3 class="mt-2 text-sm font-medium text-gray-900">Beep, Boop, Beep!</h3>
+	<p class="mt-1 text-sm text-gray-500">Get started by posting Video</p>
+	<div class="mt-6">
+	  <a href="/exercises/new" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-coral hover:bg-coral-dark focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2">
+		  <svg class="w-5 h-5 mr-2 -ml-1" 
+		  xmlns="http://www.w3.org/2000/svg" 
+		  viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+		  <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+		</svg>
+			Add New Exercise
+	  </a>
+	</div>
+</div>
 
-				<!-- <%- exercise.isComplete ? "<i class='fa-solid fa-circle-check'></i> Completed" : "<i class='fa-regular fa-circle-check'></i> Mark as completed" %>
-			</button> -->
-			<a href="/exercises/<%= exercise._id %>" class="py-4 text-lg text-center border rounded-md text-coral border-coral">
-				View Details
-			</a>
-			<% }) %>
-			<% } else { %>
-				<p>No items found.</p>
-			<% } %>
-		</section>
-	</section>
+<% } else { %> 
+	<ul class="grid grid-cols-1 gap-10 mt-10 lg:grid-cols-2">
+		<% exercises.forEach(exercise => { %> 
+			<li class="relative overflow-hidden rounded-lg shadow-xl shadow-slate-300">
+				<a href="/exercises/<%= exercise._id %>">
+				   <img src="<%= exercise.thumbnail %>" alt="exercise thumbnail"> 
+					<div class="absolute inset-0 z-10 bg-gradient-to-t from-black">
+					   <span class="absolute bottom-0 z-20 p-5 text-lg text-white text-ellipsis"><%= exercise.title %></span>
+					</div>
+				</a>
+			</li>
+		<% }) %> 
+	</ul>
+<% } %> 
 <%- include("partials/layout/footer") %>
