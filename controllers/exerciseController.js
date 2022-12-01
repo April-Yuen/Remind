@@ -33,10 +33,6 @@ module.exports = {
                 arr.push(userId)
 
             await exercise.save()
-                    //push's video id to User collection
-            //     req.user.favorites.push(videoId)
-
-            // await req.user.save()
 
             console.log(`${userId} favorited ${videoId}`)
 
@@ -81,10 +77,6 @@ module.exports = {
             arr.push(userId)
                   //saves to DB
             await exercise.save()
-
-            req.user.completed.push(videoId)
-          
-            await req.user.save()
 
             console.log(`${userId} completed ${videoId}`)
             res.json('Marked Complete')
