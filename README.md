@@ -9,7 +9,7 @@ A full stack web app to  help you categorize, track, and explore your favorite e
 <!-- ![alt tag](http://placecorgi.com/1200/650) -->
 
 ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif)
-<img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="900" height="600" />
+<img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  />
 
 ## How It's Made:
 
