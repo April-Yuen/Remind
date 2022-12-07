@@ -13,10 +13,6 @@ A full stack web app to  help you categorize, track, and explore your favorite e
 
 **Tech used:** HTML, Tailwind CSS, JavaScript, EJS, MongoDB, Mongoose
 
-
-
-## Optimizations:
-
 This project was a cumulative effort over the course of several months. The team constantly met and refined approaches, and made tweaks and adjustments when necessary. In it's currrent state, the app is complete, but there is always room for improvement. As new ideas or understandings of new technologies surface, the team may meet to make suggestions for further adjustments and optimizations. 
 
 
