@@ -8,7 +8,7 @@ A full stack web app to  help you categorize, track, and explore your favorite e
 
 <!-- ![alt tag](http://placecorgi.com/1200/650) -->
 
-![](https://www.awesomescreenshot.com/video/13106430?key=b2ba57035a017b35bee7f092bb0e8b38)
+![](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Google.mp4)
 
 ## How It's Made:
 
