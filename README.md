@@ -8,7 +8,7 @@ A full stack web app to  help you categorize, track, and explore your favorite e
 
 <!-- ![alt tag](http://placecorgi.com/1200/650) -->
 
-<!-- ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) -->
+![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif)
 <img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="900" height="600" />
 
 ## How It's Made:
@@ -17,36 +17,26 @@ A full stack web app to  help you categorize, track, and explore your favorite e
 
 
 
-## Optimizations
-*(optional)*
+## Optimizations:
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+This project was a cumulative effort over the course of several months. The team constantly met and refined approaches, and made tweaks and adjustments when necessary. In it's currrent state, the app is complete, but there is always room for improvement. As new ideas or understandings of new technologies surface, the team may meet to make suggestions for further adjustments and optimizations. 
+
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
-
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
+What did we learn with this project? Developed a deeper understanding of MVC architecture. Grew an appreciation for Tailwind CSS, and became more comfortable with using auth in our apps.
 
 
+# How to run:
 
-
-How to run:
 Use npm install to install the required dependencies.
 
 Ensure your have a .env file in your config folder, which will store your connection string.
 
-Something like:
-DB_STRING: mongodb+srv://<username>:<password>@cluster0.0e8lk.mongodb.net/?retryWrites=true&w=majority
+Launch with  npm start
 
-Contributors: 
+
+# Contributors: 
 
 April-Yuen
 jojdyx
