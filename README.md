@@ -1,12 +1,10 @@
-# Re:Mind
-
 # Re:Mind 
+
 A full stack web app to  help you categorize, track, and explore your favorite exercises. Add your exercises to a growing list of personally curated content, and enjoy your fitness journey with ease!
 
 
-**Link to project:** http://will-add-link-when-hosted.com/
+**Link to projcet** http://will-add-link-when-hosted.com/
 
-<!-- ![alt tag](http://placecorgi.com/1200/650) -->
 
 <!-- ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) -->
 <img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  />
