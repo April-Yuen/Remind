@@ -17,7 +17,6 @@ if (markAsCompleteButton){
 if(markAsIncompleteButton){
     markAsIncompleteButton.addEventListener("click", markIncomplete)
 };
-
 async function markFavorite() {
     const exerciseId = this.dataset.id;
     console.log(exerciseId)
