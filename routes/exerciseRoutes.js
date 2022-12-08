@@ -1,7 +1,7 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router(); //Helps handle our routing
 const exerciseController = require('../controllers/exerciseController')
-const { ensureAuth, ensureGuest } = require("../middleware/auth");
+const { ensureAuth, ensureGuest } = require("../middleware/auth"); //makes sure logged in
 
 router.get('/', exerciseController.getIndex)
 router.get('/posts', ensureAuth, exerciseController.getExercise)

@@ -67,7 +67,6 @@ async function markComplete() {
                  exerciseId
             })
         });
-
         const data = await response.json()
         console.log(data)
         location.reload()
