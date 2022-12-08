@@ -21,13 +21,25 @@ This project was a cumulative effort over the course of several months. The team
 What did we learn with this project? Developed a deeper understanding of MVC architecture. Grew an appreciation for Tailwind CSS, and became more comfortable with using auth in our apps.
 
 
-# How to run:
 
-Use npm install to install the required dependencies.
+# Installation:
 
-Ensure your have a .env file in your config folder, which will store your connection string.
+1. Download or clone the repo onto your local machine.
+2. In your terminal, enter `npm install` to download and install the dependencies.
+3. Use MongoDB to create a database:
+    1. Create an account.
+    2. Create a new project.
+    3. Build a database (select the free option).
+    4. Create a cluster. Choose any provider and region.
+    5. Enter a username and password to authenticate your connection. Save this password for later.
+    6. Add your current IP to the "IP Access List" to complete the database creation process.
+4. On the "Database Deployments" page in MongoDB, click Connect > Connect your application. Save the application code for later.
+5. From your local project directory, enter the config folder and create a `.env` file.
+6. Inside the file, paste the following: `DB_STRING = <MongoDB application code>`. Enter the application code where indicated.
+7. Inside the application code is `<password>`. Replace it with the password from earlier.
+8. In the terminal, enter `npm start` to run the local server. Access it via `http://localhost:8000/`.
 
-Launch with  npm start
+
 
 
 # Contributors: 
