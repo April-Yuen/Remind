@@ -7,7 +7,7 @@ A full stack web app to  help you categorize, track, and explore your favorite e
 
 
 <!-- ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) -->
-<img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  />
+<p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  /> </p>
 
 ## How It's Made:
 
