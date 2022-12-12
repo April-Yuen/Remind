@@ -3,6 +3,7 @@ const app = express()
 const flash = require('connect-flash') // shows otifcations, error messages etc.
 const session = require('express-session')//users stay logged in uses cookies client side, can see who is logged in, so we can build out posts linked to user etc.
 const cookieParser = require('cookie-parser')
+const logger = require("morgan");
 const methodOverride = require("method-override"); //Browser only GET and POST, we can override methods coming in and treat GET and POST as DELETE, PUT etc.
 const cors = require('cors')
 const passport = require('passport') //enables us to use different strategies to login
@@ -26,6 +27,9 @@ app.use(express.static('public'))
   //Body Parsing - pull stuff out of requests being made.
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+
+//Logging
+app.use(logger("dev"));
 
 // CORS 
 app.use(cors())

@@ -213,18 +213,13 @@ module.exports = {
     },
     deletePost: async (req, res) => {
         try {
-          // Find post by id
-          await Exercise.findById({ _id: req.params.id });
-    
-          // let comment= await Comment.findById({ _id: req.params.id });
-    
           // Delete post from db
           await Exercise.deleteOne({ _id: req.params.id });
-          // await Comment.remove({ post: req.params.id });
+         
           console.log("Deleted Post");
-          res.redirect("/exercises");
+          res.redirect("/");
         } catch (err) {
-          res.redirect("/exercises");
+          res.redirect("/");
         }
       },
 };

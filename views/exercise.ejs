@@ -34,7 +34,7 @@
 		</button>
 		<%if(exercise.user == user.id){ %>
 			<form
-			  action="/exercise/deletePost/<%= exercise.id %>?_method=DELETE"
+			  action="/exercises/deletePost/<%= exercise.id %>?_method=DELETE"
 			  method="POST"
 			  class="col-3"
 			>
