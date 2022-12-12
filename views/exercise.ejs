@@ -32,10 +32,18 @@
 			<i class="<%= exercise.completedBy.includes(user.id) === true ? 'markAsCompleteButton fa-solid fa-circle-check' : 'markAsIncompleteButton' %>"></i> Completed
 
 		</button>
+		<%if(exercise.user == user.id){ %>
+			<form
+			  action="/exercise/deletePost/<%= exercise.id %>?_method=DELETE"
+			  method="POST"
+			  class="col-3"
+			>
 		<button class="py-4 text-lg border rounded-md text-coral border-coral">
 			<i class="fa-solid fa-trash"></i>
 			Delete
 		</button>
+	</form>
+	<% } %>
 	</section>
-</section>
+</section> 
 <%- include("partials/layout/footer") %>
