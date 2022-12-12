@@ -217,9 +217,9 @@ module.exports = {
           await Exercise.deleteOne({ _id: req.params.id });
          
           console.log("Deleted Post");
-          res.redirect("/");
+          res.redirect("/exercises");
         } catch (err) {
-          res.redirect("/");
+          res.redirect("/exercises");
         }
       },
 };
