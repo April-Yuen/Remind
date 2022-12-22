@@ -7,15 +7,16 @@ const markAsIncompleteButton = document.querySelector(".markAsCompleteButton");
 
 if (favoriteButton){
     favoriteButton.addEventListener('click', markFavorite);
-}else{
+};
+if(notFavoriteButton){
     notFavoriteButton.addEventListener("click", markNotFavorite)
 };
 if (markAsCompleteButton){
     markAsCompleteButton.addEventListener('click', markComplete);
-}else{
+};
+if(markAsIncompleteButton){
     markAsIncompleteButton.addEventListener("click", markIncomplete)
 };
-
 async function markFavorite() {
     const exerciseId = this.dataset.id;
     console.log(exerciseId)
