@@ -1,7 +1,6 @@
 # Re:Mind 
 
-A full stack web app to  help you categorize, track, and explore your favorite exercises. Add your exercises to a growing list of personally curated content, and enjoy your fitness journey with ease!
-
+Welcome to Re:Mind, the app that helps you stay on track with your fitness routine. With Re:Mind, you can easily upload videos of your favorite exercises and set reminders to complete them. This way, you'll never forget to stay active and reach your fitness goals. Plus, our user-friendly interface makes it easy to stay organized and motivated. So why wait?
 
 **Link to projcet** http://will-add-link-when-hosted.com/
 
