@@ -7,12 +7,14 @@ const markAsIncompleteButton = document.querySelector(".markAsCompleteButton");
 
 if (favoriteButton){
     favoriteButton.addEventListener('click', markFavorite);
-}else{
+}
+if (notFavoriteButton){
     notFavoriteButton.addEventListener("click", markNotFavorite)
 };
 if (markAsCompleteButton){
     markAsCompleteButton.addEventListener('click', markComplete);
-}else{
+}
+if (markAsInComplete){
     markAsIncompleteButton.addEventListener("click", markIncomplete)
 };
 

@@ -1,59 +1,55 @@
-# Re:Mind
-
 # Re:Mind 
-A full stack web app to  help you categorize, track, and explore your favorite exercises. Add your exercises to a growing list of personally curated content, and enjoy your fitness journey with ease!
+
+Welcome to Re:Mind, the app that helps you stay on track with your fitness routine. With Re:Mind, you can easily upload videos of your favorite exercises and set reminders to complete them. This way, you'll never forget to stay active and reach your fitness goals. Plus, our user-friendly interface makes it easy to stay organized and motivated. So why wait?
+
+**Link to projcet** http://will-add-link-when-hosted.com/
 
 
-**Link to project:** http://will-add-link-when-hosted.com/
-
-<!-- ![alt tag](http://placecorgi.com/1200/650) -->
-
-![](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Google.mp4)
+<!-- ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) -->
+<p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  /> </p>
 
 ## How It's Made:
 
 **Tech used:** HTML, Tailwind CSS, JavaScript, EJS, MongoDB, Mongoose
 
+This project was a cumulative effort over the course of several months. The team constantly met and refined approaches, and made tweaks and adjustments when necessary. In it's currrent state, the app is complete, but there is always room for improvement. As new ideas or understandings of new technologies surface, the team may meet to make suggestions for further adjustments and optimizations. 
 
-
-## Optimizations
-*(optional)*
-
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
-
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
+What did we learn with this project? Developed a deeper understanding of MVC architecture. Grew an appreciation for Tailwind CSS, and became more comfortable with using auth in our apps.
 
 
 
+# Installation:
 
-How to run:
-Use npm install to install the required dependencies.
+1. Download or clone the repo onto your local machine.
+2. In your terminal, enter `npm install` to download and install the dependencies.
+3. Use MongoDB to create a database:
+    1. Create an account.
+    2. Create a new project.
+    3. Build a database (select the free option).
+    4. Create a cluster. Choose any provider and region.
+    5. Enter a username and password to authenticate your connection. Save this password for later.
+    6. Add your current IP to the "IP Access List" to complete the database creation process.
+4. On the "Database Deployments" page in MongoDB, click Connect > Connect your application. Save the application code for later.
+5. From your local project directory, enter the config folder and create a `.env` file.
+6. Inside the file, paste the following: `DB_STRING = <MongoDB application code>`. Enter the application code where indicated.
+7. Inside the application code is `<password>`. Replace it with the password from earlier.
+8. In the terminal, enter `npm start` to run the local server. Access it via `http://localhost:8000/`.
 
-Ensure your have a .env file in your config folder, which will store your connection string.
 
-Something like:
-DB_STRING: mongodb+srv://<username>:<password>@cluster0.0e8lk.mongodb.net/?retryWrites=true&w=majority
 
-Contributors: 
 
-April-Yuen
-jojdyx
-Johnaius
-bekkemarr
-ivel6482
-EddiePulido
-leroialfonse
+# Contributors: 
+
+April-Yuen |
+jojdyx | 
+Johnaius |
+bekkemarr | 
+ivel6482 |
+EddiePulido |
+leroialfonse 
     
 
 
