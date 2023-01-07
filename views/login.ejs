@@ -2,11 +2,12 @@
 <section class="w-full lg:w-6/12 2xl:w-5/12 mx-auto">
     <h1 class="my-5 text-2xl text-slate-500">Login</h1>
 
-    <% if (success != null && !success) { %>
-        <section class="bg-red-100 text-red-500 font-semibold border border-red-500 p-5 rounded-md my-5">
-            <p><%= message %></p>
-        </section>
-    <% } %>
+    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+    <div class="bg-red-100 text-red-500 font-semibold border border-red-500 p-5 rounded-md my-5"><%= el.msg %></div>
+    <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+     messages.info.forEach( el => { %>
+    <div class="bg-red-100 text-red-500 font-semibold border border-red-500 p-5 rounded-md my-5"><%= el.msg %></div>
+    <% }) %> <% } %>
 
     <form action="/auth/login" method="POST" class="space-y-5">
         <div>
