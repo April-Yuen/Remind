@@ -1,7 +1,7 @@
 <%- include("partials/layout/header") %> 
 <section class="lg:flex lg:gap-6">
 	<section class="lg:w-1/2">
-		<iframe width="560"
+		<iframe width="720"
 				height="315"
 				src="<%= exercise.videoURL %>"
 				title="YouTube video player"
@@ -17,9 +17,7 @@
 			<h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></h2>
 			<button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton' : 'notfavoriteButton' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
 				<i class=" <%= exercise.favoritesBy.includes(user.id) === true ? 'favoriteButton fa-heart fa-solid' : 'notfavoriteButton fa-heart fa-regular' %>"></i>
-				<% /* %>
-				<i class="fa-heart <%= exercise.isFavorite ? 'fa-solid' : 'fa-regular' %>"></i>
-				<% */ %>
+		
 			</button>
 		</div>
 		<div>
@@ -32,11 +30,21 @@
 		aria-label="complete"
 		data-id="<%= exercise._id %>"> 
 			<i class="<%= exercise.completedBy.includes(user.id) === true ? 'markAsCompleteButton fa-solid fa-circle-check' : 'markAsIncompleteButton' %>"></i> Completed
+
 		</button>
-		<button class="py-4 text-lg border rounded-md text-coral border-coral">
+		<%if(exercise.user == user.id){ %>
+			<form
+			  action="/exercises/deletePost/<%= exercise.id %>?_method=DELETE"
+			  method="POST"
+			  class=""
+			>
+			
+		<button class="w-full py-4 text-lg border rounded-md text-coral border-coral">
 			<i class="fa-solid fa-trash"></i>
 			Delete
 		</button>
+	</form>
+	<% } %>
 	</section>
-</section>
+</section> 
 <%- include("partials/layout/footer") %>

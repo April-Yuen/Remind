@@ -7,17 +7,16 @@ const markAsIncompleteButton = document.querySelector(".markAsCompleteButton");
 
 if (favoriteButton){
     favoriteButton.addEventListener('click', markFavorite);
-}
-if (notFavoriteButton){
+};
+if(notFavoriteButton){
     notFavoriteButton.addEventListener("click", markNotFavorite)
 };
 if (markAsCompleteButton){
     markAsCompleteButton.addEventListener('click', markComplete);
-}
-if (markAsInComplete){
+};
+if(markAsIncompleteButton){
     markAsIncompleteButton.addEventListener("click", markIncomplete)
 };
-
 async function markFavorite() {
     const exerciseId = this.dataset.id;
     console.log(exerciseId)
@@ -69,7 +68,6 @@ async function markComplete() {
                  exerciseId
             })
         });
-
         const data = await response.json()
         console.log(data)
         location.reload()
