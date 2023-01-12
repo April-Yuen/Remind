@@ -16,13 +16,12 @@
 </div>
 
 <br>
-<br>
 
  <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  /> </p> 
 
 <h1 align="center">
   <a href="https://Remind.cyclic.app/">
-    <img src="img/remind-logo.svg" alt="Remind logo" width="140">
+    <img src="img/Re_mind.png" alt="Remind logo" width="140">
   </a>
 </h1>
 
