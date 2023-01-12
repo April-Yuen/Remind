@@ -106,9 +106,13 @@ This project was a cumulative effort over the course of several months. The team
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-<!-- <div align='center'>
-  <img src="docs/images/divider.png">
-</div> -->
+
+# Optimizations
+
+<p>In the future, the team has considered tweaks improvements and other optimizations to the project. Some of the ideas include enabling google calendar reminders, in order to give users the ability to better plan out their exercise plans.</p> 
+
+<p>Additionally, we want to explore converting the frontend and UI elements to React. We've also thought about ways to expand community feel of the app, by way of adding the ability to make comments, send direct messages, user and uploader names to uploaded videos, and other ways to communicate with others on their fitness journeys.</p>
+
 
 # 🛠️ Contributions
  ### Thanks go to these wonderful people for their contributions to <em>Remind</em>!:
