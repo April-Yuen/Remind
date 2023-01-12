@@ -9,7 +9,9 @@
         <p class="mt-1 text-sm text-gray-500">Get started by marking as favorite some exercises.</p>
         <div class="mt-6">
           <a href="/exercises" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-coral hover:bg-coral-dark focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2">
-            <svg class="w-5 h-5 mr-2 -ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <svg class="w-5 h-5 mr-2 -ml-1" 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
             </svg>
                 See all exercises
@@ -26,6 +28,7 @@
                         <div class="absolute inset-0 z-10 bg-gradient-to-t from-black">
                            <span class="absolute bottom-0 z-20 p-5 text-lg text-white text-ellipsis"><%= favorite.title %></span>
                         </div>
+                    </a>
                 </li>
             <% }) %> 
         </ul>

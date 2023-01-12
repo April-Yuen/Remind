@@ -3,12 +3,14 @@ const validator = require("validator");
 const User = require("../models/User");
 
 module.exports = {
-    loginPage: async (req, res) => {
-        res.render("login", { success: null, message: null });
-    },
-    signUpPage: async (req, res) => {
-        res.render("signup", { success: null, message: null });
-    },
+    getLogin : async (req, res) => {
+    if (req.user) {
+    return res.redirect("/profile");
+    }
+    res.render("login", {
+    title: "Login",
+    })
+  },
     postLogin : (req, res, next) => {
       const validationErrors = [];
       if (!validator.isEmail(req.body.email))
@@ -51,6 +53,14 @@ module.exports = {
         req.user = null;
         res.redirect("/");
       });
+    },
+    getSignup : async (req, res) => {
+      if (req.user) {
+        return res.redirect("/profile");
+      }
+      res.render("signup", {
+        title: "CreateAccount",
+      })
     },
     postSignup : (req, res, next) => {
       const validationErrors = [];
