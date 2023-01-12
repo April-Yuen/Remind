@@ -26,7 +26,7 @@
 
 <h1 align="center">
   <a href="https://Remind.cyclic.app/">
-    <img src="docs/images/logo.png" alt="Remind logo" width="140">
+    <img src="img/remind-logo.svg" alt="Remind logo" width="140">
   </a>
 </h1>
 
@@ -68,6 +68,7 @@
 
   </details>
     </td>
+    <!-- Filler Art -->
     <td valign="top" style="width:70%"><img src="docs/images/coolkidsstayinghome.png" alt="Two girls sitting on a sofa"/></td>
   </tr>
 </table>
@@ -77,9 +78,9 @@
 <br/>
 <br/>
 
-<div align='center'>
+<!-- <div align='center'>
   <img src="docs/images/divider.png">
-</div>
+</div> -->
 
 # 📢 About
 
@@ -93,9 +94,9 @@ This project was a cumulative effort over the course of several months. The team
 <img src="remind-logo">
 </p>
 
-<div align='center'>
+<!-- <div align='center'>
   <img src="docs/images/divider.png">
-</div>
+</div> -->
 
 ## ✅ How It's Made
 
@@ -122,9 +123,9 @@ This project was a cumulative effort over the course of several months. The team
 
 
 <br>
-<div align='center'>
+<!-- <div align='center'>
   <img src="docs/images/divider.png">
-</div>
+</div> -->
 
 # 🚀 Getting Started
 ## 💻 Install
@@ -147,9 +148,9 @@ You can check out our [New Developer Onboarding](https://github.com/April-Yuen/R
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-<div align='center'>
+<!-- <div align='center'>
   <img src="docs/images/divider.png">
-</div>
+</div> -->
 
 # 🛠️ Contributions
 
