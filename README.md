@@ -21,7 +21,7 @@
 
 <h1 align="center">
   <a href="https://Remind.cyclic.app/">
-    <img src="img/Remind.jpg" alt="Remind logo" width="140">
+    <img src="https://github.com/leroialfonse/Remind/blob/main/Remind.jpg" alt="Remind logo" width="140">
   </a>
 </h1>
 
@@ -31,11 +31,10 @@
   ·
   <a href="https://github.com/April-Yuen/Remind/blob/development/.github/CONTRIBUTING.md">Contributing guide</a>
   ·
-  <a href="https://remind.cyclic.app/"><strong>Link to project</strong></a>
+  <a href="https://remind.cyclic.app/"><strong>See it Live</strong></a>
   ·
   <a href="https://github.com/April-Yuen/Remind/issues">Request an issue</a>
   ·
-  <a href="https://discord.com/channels/735923219315425401/1038482732633825442">Contact us!</a>
 </div>
 
 <br/>
