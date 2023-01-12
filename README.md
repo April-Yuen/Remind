@@ -21,6 +21,9 @@
 <br>
 <br>
 
+ ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) 
+ <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  /> </p> 
+
 <h1 align="center">
   <a href="https://Remind.cyclic.app/">
     <img src="docs/images/logo.png" alt="Remind logo" width="140">
@@ -179,13 +182,16 @@ If you're interested in contributing, you may:
 
 
 
-<!-- //////////////////Original /////////////////////// 
-<!-- Welcome to Re:Mind, the app that helps you stay on track with your fitness routine. With Re:Mind, you can easily upload videos of your favorite exercises and set reminders to complete them. This way, you'll never forget to stay active and reach your fitness goals. Plus, our user-friendly interface makes it easy to stay organized and motivated. So why wait?
+<!-- //////////////////Original README follows./////////////////////// -->
+
+
+
+ Welcome to Re:Mind, the app that helps you stay on track with your fitness routine. With Re:Mind, you can easily upload videos of your favorite exercises and set reminders to complete them. This way, you'll never forget to stay active and reach your fitness goals. Plus, our user-friendly interface makes it easy to stay organized and motivated. So why wait?
 
 **Link to projcet** http://will-add-link-when-hosted.com/
 
 
-<!-- ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) 
+ ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) 
 <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  /> </p>
 
 ## How It's Made:
@@ -232,4 +238,3 @@ EddiePulido |
 leroialfonse 
     
 
- -->
