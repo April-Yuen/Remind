@@ -21,7 +21,7 @@
 
 <h1 align="center">
   <a href="https://Remind.cyclic.app/">
-    <img src="img/Remind.jpg" alt="Remind logo" width="140">
+    <img src="https://github.com/leroialfonse/Remind/blob/main/Remind.jpg" alt="Remind logo" width="140">
   </a>
 </h1>
 
