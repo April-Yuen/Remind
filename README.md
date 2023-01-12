@@ -21,7 +21,6 @@
 <br>
 <br>
 
- ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) 
  <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  /> </p> 
 
 <h1 align="center">
@@ -192,7 +191,7 @@ If you're interested in contributing, you may:
 **Link to projcet** http://will-add-link-when-hosted.com/
 
 
- ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif) 
+ <!-- ![alt tag](https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif)  -->
 <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  /> </p>
 
 ## How It's Made:
