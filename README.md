@@ -21,7 +21,7 @@
 
 <h1 align="center">
   <a href="https://Remind.cyclic.app/">
-    <img src="img/Re_mind.png" alt="Remind logo" width="140">
+    <img src="img/Remind.jpg" alt="Remind logo" width="140">
   </a>
 </h1>
 
@@ -68,11 +68,6 @@ Welcome to Re:Mind, the app that helps you stay on track with your fitness routi
 This project was a cumulative effort over the course of several months. The team constantly met and refined approaches, and made tweaks and adjustments when necessary. In it's currrent state, the app is complete, but there is always room for improvement. As new ideas or understandings of new technologies surface, the team may meet to make suggestions for further adjustments and optimizations.
 
 <br/>
-
-<p align="center">
-<img src="remind-logo">
-</p>
-
 
 ## ✅ How It's Made
 
