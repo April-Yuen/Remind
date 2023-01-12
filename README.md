@@ -17,7 +17,7 @@
 
 <br>
 
- <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/Untitled%20video.gif" width="600"  /> </p> 
+ <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/DemoVideo.gif" width="600"/> </p> 
 
 <h1 align="center">
   <a href="https://Remind.cyclic.app/">
