@@ -5,7 +5,7 @@ const User = require("../models/User");
 module.exports = {
     getLogin : async (req, res) => {
     if (req.user) {
-    return res.redirect("/profile");
+    return res.redirect("/exercises");
     }
     res.render("login", {
     title: "Login",
