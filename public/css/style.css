@@ -220,7 +220,7 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+  -webkit-appearance: none;
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -230,8 +230,7 @@ button,
 
 button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+
 }
 
 /*
