@@ -56,7 +56,7 @@ module.exports = {
     },
     getSignup : async (req, res) => {
       if (req.user) {
-        return res.redirect("/profile");
+        return res.redirect("/exercises");
       }
       res.render("signup", {
         title: "CreateAccount",
