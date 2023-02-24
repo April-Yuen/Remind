@@ -1,4 +1,4 @@
-# Re:Mind 
+# Re:Mind
 
 <div align="center">
 <a href="https://deploy.cyclic.sh/GH_LOGIN/GH_REPO">
@@ -17,10 +17,10 @@
 
 <br>
 
- <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/DemoVideo.gif" width="600"/> </p> 
+ <p align="center" ><img src="https://github.com/leroialfonse/Remind/blob/BrandonCurrent/DemoVideo.gif" width="600"/> </p>
 
 <h1 align="center">
-  <a href="https://Remind.cyclic.app/">
+  <a href="https://remind-workout.cyclic.app/">
     <img src="https://github.com/leroialfonse/Remind/blob/main/Remind.jpg" alt="Remind logo" width="140">
   </a>
 </h1>
@@ -31,7 +31,7 @@
   ·
   <a href="https://github.com/April-Yuen/Remind/blob/development/.github/CONTRIBUTING.md">Contributing guide</a>
   ·
-  <a href="https://remind.cyclic.app/"><strong>See it Live</strong></a>
+  <a href="https://remind-workout.cyclic.app/"><strong>See it Live</strong></a>
   ·
   <a href="https://github.com/April-Yuen/Remind/issues">Request an issue</a>
   ·
@@ -46,12 +46,12 @@
     <details open="open">
   <summary>Table of Contents</summary>
 
-  - [About](#-about)
-  - [Built With](#-built-with)
-  - [Getting Started](#-getting-started)
-  - [Install](#-install)
-  - [Contributions](#%EF%B8%8F-contributions)
-  - [Acknowledgements](#-acknowledgements)
+- [About](#-about)
+- [Built With](#-built-with)
+- [Getting Started](#-getting-started)
+- [Install](#-install)
+- [Contributions](#%EF%B8%8F-contributions)
+- [Acknowledgements](#-acknowledgements)
 
   </details>
 
@@ -93,29 +93,28 @@ This project was a cumulative effort over the course of several months. The team
 <br>
 
 # 🚀 Getting Started
+
 ## 💻 Install
 
 - Fork and clone the repository to your local computer.
 - Complete and store an `.env` file in the `server/config` folder.
 - `npm install` in the root folder, which installs the required dependencies.
-- And, `npm run dev` in the root folder. 
+- And, `npm run dev` in the root folder.
 - This runs a local instance of mongodb. You can connect to it by connecting to `mongodb://127.0.0.1:27017/` with any MongoDB client like [Compass](https://www.mongodb.com/products/compass).
 
 <br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 # Optimizations
 
-<p>In the future, the team has considered tweaks improvements and other optimizations to the project. Some of the ideas include enabling google calendar reminders, in order to give users the ability to better plan out their exercise plans.</p> 
+<p>In the future, the team has considered tweaks improvements and other optimizations to the project. Some of the ideas include enabling google calendar reminders, in order to give users the ability to better plan out their exercise plans.</p>
 
 <p>Additionally, we want to explore converting the frontend and UI elements to React. We've also thought about ways to expand community feel of the app, by way of adding the ability to make comments, send direct messages, user and uploader names to uploaded videos, and other ways to communicate with others on their fitness journeys.</p>
 
-
 # 🛠️ Contributions
- ### Thanks go to these wonderful people for their contributions to <em>Remind</em>!:
+
+### Thanks go to these wonderful people for their contributions to <em>Remind</em>!:
 
  <br>
 
@@ -128,5 +127,3 @@ This project was a cumulative effort over the course of several months. The team
 <br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
